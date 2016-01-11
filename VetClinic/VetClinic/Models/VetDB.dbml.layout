@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="VetDB">
+  <DataContextMoniker Name="/VetDBDataContext" />
+  <nestedChildShapes>
+    <classShape Id="00a7c26f-d981-4f10-8a5f-5d5314ea8367" absoluteBounds="0.75, 0.75, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/VetDBDataContext/Schedule" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6530c4c9-bd3c-4ab5-8ced-d28e42871b1b" absoluteBounds="0.765, 1.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1d4ef783-fac6-4794-8623-e0ab521ea24b" absoluteBounds="3.75, 0.75, 2, 1.3862939453125">
+      <DataClassMoniker Name="/VetDBDataContext/Card" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a3b59ff6-47a9-4a4c-912a-b3bbcdc9dccd" absoluteBounds="3.765, 1.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d4b84d02-852c-4ec0-a04d-02a016e9a20a" absoluteBounds="6.75, 0.75, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/VetDBDataContext/Pet" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4d8015b1-6b3c-4b60-8e5a-3304e966850b" absoluteBounds="6.765, 1.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b3689ace-2c6d-42d3-beb0-a97e387758aa" absoluteBounds="1.125, 2.875, 2, 1.3862939453125">
+      <DataClassMoniker Name="/VetDBDataContext/Client" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1effc891-6572-42ac-abce-7c843e9aa5c5" absoluteBounds="1.1400000000000001, 3.335, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="35611359-aafc-41d7-9bc2-eec244815d33" absoluteBounds="3.625, 2.875, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/VetDBDataContext/Doctor" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3ac0f943-5eb6-4e67-bda3-f0dc45679139" absoluteBounds="3.6399999999999997, 3.335, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

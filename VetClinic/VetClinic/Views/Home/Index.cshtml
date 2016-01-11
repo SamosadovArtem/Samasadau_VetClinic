@@ -1,0 +1,9 @@
+﻿@model List<VetClinic.Models.Doctor>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+@Model[0].Name<br>
+@Html.ActionLink("Регистрация","Register","Doctor")
