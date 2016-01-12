@@ -1,36 +1,83 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="VetDB">
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 12.125" name="VetDB">
   <DataContextMoniker Name="/VetDBDataContext" />
   <nestedChildShapes>
-    <classShape Id="00a7c26f-d981-4f10-8a5f-5d5314ea8367" absoluteBounds="0.75, 0.75, 2, 1.5785953776041666">
-      <DataClassMoniker Name="/VetDBDataContext/Schedule" />
-      <nestedChildShapes>
-        <elementListCompartment Id="6530c4c9-bd3c-4ab5-8ced-d28e42871b1b" absoluteBounds="0.765, 1.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="1d4ef783-fac6-4794-8623-e0ab521ea24b" absoluteBounds="3.75, 0.75, 2, 1.3862939453125">
-      <DataClassMoniker Name="/VetDBDataContext/Card" />
-      <nestedChildShapes>
-        <elementListCompartment Id="a3b59ff6-47a9-4a4c-912a-b3bbcdc9dccd" absoluteBounds="3.765, 1.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="d4b84d02-852c-4ec0-a04d-02a016e9a20a" absoluteBounds="6.75, 0.75, 2, 1.5785953776041666">
+    <classShape Id="d4b84d02-852c-4ec0-a04d-02a016e9a20a" absoluteBounds="8.125, 5, 2, 1.5785953776041666">
       <DataClassMoniker Name="/VetDBDataContext/Pet" />
       <nestedChildShapes>
-        <elementListCompartment Id="4d8015b1-6b3c-4b60-8e5a-3304e966850b" absoluteBounds="6.765, 1.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="4d8015b1-6b3c-4b60-8e5a-3304e966850b" absoluteBounds="8.14, 5.46, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="b3689ace-2c6d-42d3-beb0-a97e387758aa" absoluteBounds="1.125, 2.875, 2, 1.3862939453125">
+    <classShape Id="614bb16a-e833-4053-99d1-2cda7413cdc4" absoluteBounds="8.125, 7.75, 2, 1.3862939453125005">
+      <DataClassMoniker Name="/VetDBDataContext/Card" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0a5871e8-0136-4cb4-9d20-bc0243b611ee" absoluteBounds="8.14, 8.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e22ae9db-6c02-4848-a6cf-bc56fe64ac33" absoluteBounds="3.5, 10.25, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/VetDBDataContext/Schedule" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d43377c8-3003-4bbd-a641-0b99ff7887a1" absoluteBounds="3.515, 10.71, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e902bd55-49d4-4daa-b67d-408bca93c085" absoluteBounds="5.5, 5, 2, 1.3862939453125003">
       <DataClassMoniker Name="/VetDBDataContext/Client" />
       <nestedChildShapes>
-        <elementListCompartment Id="1effc891-6572-42ac-abce-7c843e9aa5c5" absoluteBounds="1.1400000000000001, 3.335, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="14b41559-3f5f-4dc8-be63-c25e54dfab24" absoluteBounds="5.515, 5.46, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="35611359-aafc-41d7-9bc2-eec244815d33" absoluteBounds="3.625, 2.875, 2, 1.5785953776041666">
+    <classShape Id="af0bc23f-808b-4ae0-a659-6dcb71fac212" absoluteBounds="0.75, 8.125, 2, 1.5785953776041666">
       <DataClassMoniker Name="/VetDBDataContext/Doctor" />
       <nestedChildShapes>
-        <elementListCompartment Id="3ac0f943-5eb6-4e67-bda3-f0dc45679139" absoluteBounds="3.6399999999999997, 3.335, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="eaaaf74c-e16e-4f33-8e13-6eeb8dfd6cd1" absoluteBounds="0.765, 8.585, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
+    <classShape Id="aa2525a2-6b51-4609-8dc1-a0fb74565f3d" absoluteBounds="3.5, 7.125, 2, 1.3862939453124996">
+      <DataClassMoniker Name="/VetDBDataContext/DoctorRole" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0e8d24fb-e7d6-47e9-bb57-6d5552825c7c" absoluteBounds="3.515, 7.585, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="42fecdc8-9d46-4d85-a142-608a74006fd0" absoluteBounds="0.75, 5.125, 2, 1.3862939453125005">
+      <DataClassMoniker Name="/VetDBDataContext/Role" />
+      <nestedChildShapes>
+        <elementListCompartment Id="bc10611f-e355-46b5-be83-a4eaf28769e0" absoluteBounds="0.765, 5.585, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(9.125 : 6.57859537760417); (9.125 : 7.75)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/VetDBDataContext/Pet/Pet_Card" />
+      <nodes>
+        <classShapeMoniker Id="d4b84d02-852c-4ec0-a04d-02a016e9a20a" />
+        <classShapeMoniker Id="614bb16a-e833-4053-99d1-2cda7413cdc4" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(7.5 : 5.69314697265625); (8.125 : 5.69314697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/VetDBDataContext/Client/Client_Pet" />
+      <nodes>
+        <classShapeMoniker Id="e902bd55-49d4-4daa-b67d-408bca93c085" />
+        <classShapeMoniker Id="d4b84d02-852c-4ec0-a04d-02a016e9a20a" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(1.75 : 9.70359537760417); (1.75 : 11.0392976888021); (3.5 : 11.0392976888021)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/VetDBDataContext/Doctor/Doctor_Schedule" />
+      <nodes>
+        <classShapeMoniker Id="af0bc23f-808b-4ae0-a659-6dcb71fac212" />
+        <classShapeMoniker Id="e22ae9db-6c02-4848-a6cf-bc56fe64ac33" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 8.31814697265625); (3.5 : 8.31814697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/VetDBDataContext/Doctor/Doctor_DoctorRole" />
+      <nodes>
+        <classShapeMoniker Id="af0bc23f-808b-4ae0-a659-6dcb71fac212" />
+        <classShapeMoniker Id="aa2525a2-6b51-4609-8dc1-a0fb74565f3d" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 5.81814697265625); (4.5 : 5.81814697265625); (4.5 : 7.125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/VetDBDataContext/Role/Role_DoctorRole" />
+      <nodes>
+        <classShapeMoniker Id="42fecdc8-9d46-4d85-a142-608a74006fd0" />
+        <classShapeMoniker Id="aa2525a2-6b51-4609-8dc1-a0fb74565f3d" />
+      </nodes>
+    </associationConnector>
   </nestedChildShapes>
 </ordesignerObjectsDiagram>

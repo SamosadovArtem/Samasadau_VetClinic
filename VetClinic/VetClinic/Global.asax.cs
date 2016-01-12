@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Routing;
+using VetClinic.Areas.Admin;
+using VetClinic.Areas.Default;
 
 namespace VetClinic
 {
@@ -14,9 +16,18 @@ namespace VetClinic
     {
         protected void Application_Start()
         {
-            AreaRegistration.RegisterAllAreas();
+            //AreaRegistration.RegisterAllAreas();
 
-            WebApiConfig.Register(GlobalConfiguration.Configuration);
+
+            var adminArea = new AdminAreaRegistration();
+            var adminAreaContext = new AreaRegistrationContext(adminArea.AreaName, RouteTable.Routes);
+            adminArea.RegisterArea(adminAreaContext);
+
+            var defaultArea = new DefaultAreaRegistration();
+            var defaultAreaContext = new AreaRegistrationContext(defaultArea.AreaName, RouteTable.Routes);
+            defaultArea.RegisterArea(defaultAreaContext);
+
+            //WebApiConfig.Register(GlobalConfiguration.Configuration);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
         }
