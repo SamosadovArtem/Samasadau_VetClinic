@@ -7,7 +7,7 @@ using Ninject;
 
 namespace VetClinic.Models.SQLRepository
 {
-    public class SQLRepository:IRepository
+    public class SQLRepository : IRepository
     {
 
         VetDBDataContext dataBase { get; set; }
@@ -31,7 +31,20 @@ namespace VetClinic.Models.SQLRepository
         {
             dataBase.Doctor.InsertOnSubmit(instance);
             dataBase.Doctor.Context.SubmitChanges();
-            return true;
+            return true;
+
+        }
+
+        //------------------------------
+        public Doctor Login(string email, string password)
+        {
+            return dataBase.Doctor.FirstOrDefault(p => string.Compare(p.Email, email, true) == 0 && p.Password == password);
+        }
+
+
+        public Doctor GetUser(string email)
+        {
+            return dataBase.Doctor.FirstOrDefault(p => string.Compare(p.Email, email, true) == 0);
         }
     }
 }

@@ -29,5 +29,10 @@ namespace VetClinic.Areas.Default.Controllers
             //return doctors[0].Name;
         }
 
+        public ActionResult UserLogin()
+        {
+            return View(CurrentUser);
+        }
+
     }
 }

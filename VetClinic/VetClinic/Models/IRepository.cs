@@ -13,5 +13,15 @@ namespace VetClinic.Models
         bool AddDoctor(Doctor instance);
         //bool Update();
         //bool Delete();
+
+
+
+        //--------------------
+
+        Doctor Login(string email, string password);
+        Doctor GetUser(string email);
+
+        //--------------------
+
     }
 }

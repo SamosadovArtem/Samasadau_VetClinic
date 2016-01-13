@@ -1,0 +1,21 @@
+﻿@model VetClinic.Models.Doctor
+
+@{
+    ViewBag.Title = "UserLogin";
+    Layout = null;
+}
+
+@if (Model != null)
+{
+    <ul>
+        <li>@Model.Email</li>
+        <li>@Html.ActionLink("Выход", "Logout", "Login")</li>
+    </ul>
+}
+else
+{
+    <ul>
+        <li>@Html.ActionLink("Вход", "Index", "Login")</li>
+        <li>@Html.ActionLink("Регистрация", "Register", "Doctor")</li>
+    </ul>
+}

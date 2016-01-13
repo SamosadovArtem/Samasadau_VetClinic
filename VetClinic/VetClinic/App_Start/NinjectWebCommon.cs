@@ -12,6 +12,7 @@ namespace VetClinic.App_Start
     using VetClinic.Models;
     using VetClinic;
     using VetClinic.Mappers;
+    using VetClinic.Infrastructure.Auth;
 
     public static class NinjectWebCommon
     {
@@ -66,6 +67,8 @@ namespace VetClinic.App_Start
             InRequestScope();
 
             kernel.Bind<IMapper>().To<DoctorMapper>().InSingletonScope();
+
+            kernel.Bind<IAuthentication>().To<DoctorAuthentication>().InRequestScope();
 
         }
     }
