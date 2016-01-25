@@ -9,6 +9,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet">
     <title>Register</title>
 </head>
 <body>
@@ -27,8 +28,8 @@
                         Name
                     </label>
                     <div class="controls">
-                        @Html.ValidationMessage("Name")<br>
-                        @Html.TextBox("Name", Model.Name)<br>
+                        @Html.TextBox("Name", Model.Name, new { @class = "form-control"})
+                        @Html.ValidationMessage("Name")
                     </div>
                 </div>
                 <div class="control-group">
@@ -36,8 +37,9 @@
                         Email
                     </label>
                     <div class="controls">
-                        @Html.ValidationMessage("Email")<br>
-                        @Html.TextBox("Email", Model.Email)<br>
+                        
+                        @Html.TextBox("Email", Model.Email, new { @class = "form-control" })
+                        @Html.ValidationMessage("Email")
                     </div>
                 </div>
                 <div class="control-group">
@@ -45,8 +47,9 @@
                         Password
                     </label>
                     <div class="controls">
-                        @Html.ValidationMessage("Password")<br>
-                        @Html.Password("Password", Model.Password)<br>
+                        
+                        @Html.Password("Password", Model.Password, new { @class = "form-control" })
+                        @Html.ValidationMessage("Password")
                     </div>
                 </div>
 
@@ -55,8 +58,9 @@
                         Confirm Password
                     </label>
                     <div class="controls">
-                        @Html.ValidationMessage("ConfirmPassword")<br>
-                        @Html.Password("ConfirmPassword", Model.ConfirmPassword)<br>
+                        
+                        @Html.Password("ConfirmPassword", Model.ConfirmPassword, new { @class = "form-control" })
+                        @Html.ValidationMessage("ConfirmPassword")
                     </div>
 
                     <div class="form-actions">

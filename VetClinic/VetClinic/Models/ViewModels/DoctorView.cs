@@ -10,6 +10,8 @@ namespace VetClinic.Models.ViewModels
     public class DoctorView
     {
         public int ID { get; set; }
+
+        [Required(ErrorMessage = "Введите имя")]
         public string Name { get; set; }
 
         [Required(ErrorMessage="Введите Email")]

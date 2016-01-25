@@ -23,8 +23,10 @@ namespace VetClinic.Areas.Default.Controllers
         }
         public ActionResult Index()
         {
-            
+
             var doctors = _repository.GetDoctors().ToList();
+           // List<Doctor> doctors = new List<Doctor>();
+            //doctors.Add(new Doctor());
             return View(doctors);
             //return doctors[0].Name;
         }

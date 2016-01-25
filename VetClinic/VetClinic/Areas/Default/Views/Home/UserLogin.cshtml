@@ -7,15 +7,26 @@
 
 @if (Model != null)
 {
-    <ul>
-        <li>@Model.Email</li>
+
+
+    <ul class="nav navbar-nav">
+        <li>@Html.ActionLink(Model.Name, "Index", "Home")</li>
+    </ul>
+    <ul class="nav navbar-nav">
         <li>@Html.ActionLink("Выход", "Logout", "Login")</li>
     </ul>
+        
+
 }
 else
 {
-    <ul>
-        <li>@Html.ActionLink("Вход", "Index", "Login")</li>
+    <ul class="nav navbar-nav">
         <li>@Html.ActionLink("Регистрация", "Register", "Doctor")</li>
     </ul>
+    <ul class="nav navbar-nav">
+        <li>@Html.ActionLink("Вход", "Index", "Login")</li>
+    </ul>
+        
+       <!-- <li></li>-->
+    
 }

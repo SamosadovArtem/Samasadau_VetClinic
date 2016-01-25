@@ -1,4 +1,6 @@
 using System;
+using System.Linq;
+
 namespace VetClinic.Models
 {
     partial class DoctorRole
@@ -23,8 +25,8 @@ namespace VetClinic.Models
             var rolesArray = roles.Split(new[] { "," }, StringSplitOptions.RemoveEmptyEntries);
             foreach (var role in rolesArray)
             {
-                //var hasRole = DoctorRole.Any(p => string.Compare(p.Role.Code, role, true) == 0);
-                if (false)
+                var hasRole = DoctorRole.Any(p => string.Compare(p.Role.Code, role, true) == 0);
+                if (hasRole)
                 {
                     return true;
                 }

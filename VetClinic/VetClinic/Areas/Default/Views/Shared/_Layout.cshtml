@@ -3,25 +3,29 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet">
     <title>@ViewBag.Title</title>
 
 </head>
 <body>
 
-    <div class="navbar navbar-fixed-top">
-        <div class="navbar-inner">
-            <div class="container">
-                <ul class="nav nav-pills pull-right">
-                    @Html.Action("UserLogin", "Home")
-                </ul>
+
+
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+               <div class="navbar-brand">@Html.ActionLink("На главную", "Index", "Home")</div>
             </div>
+            <ul class="nav navbar-nav">
+                <li>@Html.Action("UserLogin", "Home")</li>
+            </ul>
+
+
         </div>
-    </div>
+    </nav>
 
+        @RenderBody()
 
-
-    @RenderBody()
-
-    @RenderSection("scripts", required: false)
+        @RenderSection("scripts", required: false)
 </body>
 </html>

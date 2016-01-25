@@ -1,23 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8"?><Database Name="VetDB" Class="VetDBDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="WebSettings" ConnectionString="Data Source=SAMOSAD-ПК\SQLEXPRESS;Initial Catalog=VetDB;Integrated Security=True;Pooling=False" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="VetDBConnectionString" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.Pet" Member="Pet">
-    <Type Name="Pet">
-      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Master" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Kind" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Association Name="Pet_Card" Member="Card" ThisKey="ID" OtherKey="Pet" Type="Card" />
-      <Association Name="Client_Pet" Member="Client" ThisKey="Master" OtherKey="ID" Type="Client" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Card" Member="Card">
-    <Type Name="Card">
-      <Column Name="Pet" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Disease" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Association Name="Pet_Card" Member="Pet1" ThisKey="Pet" OtherKey="ID" Type="Pet" IsForeignKey="true" />
-    </Type>
-  </Table>
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="VetClinicDB" Class="VetDBDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=NovaPC\SQLEXPRESS;Initial Catalog=VetClinicDB;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="VetClinicDBConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.Schedule" Member="Schedule">
     <Type Name="Schedule">
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -27,38 +9,56 @@
       <Association Name="Doctor_Schedule" Member="Doctor1" ThisKey="Doctor" OtherKey="ID" Type="Doctor" IsForeignKey="true" />
     </Type>
   </Table>
+  <Table Name="dbo.Card" Member="Card">
+    <Type Name="Card">
+      <Column Name="Pet" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Disease" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Date" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Association Name="Pet_Card" Member="Pet1" ThisKey="Pet" OtherKey="ID" Type="Pet" IsForeignKey="true" />
+    </Type>
+  </Table>
   <Table Name="dbo.Client" Member="Client">
     <Type Name="Client">
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Email" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Association Name="Client_Pet" Member="Pet" ThisKey="ID" OtherKey="Master" Type="Pet" />
     </Type>
   </Table>
   <Table Name="dbo.Doctor" Member="Doctor">
     <Type Name="Doctor">
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Email" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Password" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Association Name="Doctor_Schedule" Member="Schedule" ThisKey="ID" OtherKey="Doctor" Type="Schedule" />
       <Association Name="Doctor_DoctorRole" Member="DoctorRole" ThisKey="ID" OtherKey="DoctorID" Type="DoctorRole" />
     </Type>
   </Table>
   <Table Name="dbo.DoctorRole" Member="DoctorRole">
     <Type Name="DoctorRole">
-      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="DoctorID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="RoleID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Association Name="Doctor_DoctorRole" Member="Doctor" ThisKey="DoctorID" OtherKey="ID" Type="Doctor" IsForeignKey="true" />
       <Association Name="Role_DoctorRole" Member="Role" ThisKey="RoleID" OtherKey="ID" Type="Role" IsForeignKey="true" />
     </Type>
   </Table>
+  <Table Name="dbo.Pet" Member="Pet">
+    <Type Name="Pet">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Master" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Kind" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="Pet_Card" Member="Card" ThisKey="ID" OtherKey="Pet" Type="Card" />
+      <Association Name="Client_Pet" Member="Client" ThisKey="Master" OtherKey="ID" Type="Client" IsForeignKey="true" />
+    </Type>
+  </Table>
   <Table Name="dbo.Role" Member="Role">
     <Type Name="Role">
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Code" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Code" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Association Name="Role_DoctorRole" Member="DoctorRole" ThisKey="ID" OtherKey="RoleID" Type="DoctorRole" />
     </Type>
   </Table>
