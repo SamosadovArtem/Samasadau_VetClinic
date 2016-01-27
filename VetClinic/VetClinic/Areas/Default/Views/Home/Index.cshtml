@@ -3,6 +3,28 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Areas/Default/Views/Shared/_Layout.cshtml";
+    
+
 }
 
+<head>
+    <link href="~/Content/bootstrap.css" rel="stylesheet">
+    <style>
+                .btn a {
+            color: white;
+            text-decoration: none;
+        }
+        </style>
+</head>
+
 <h2><span class="label label-info">Расписание приема</span></h2> <br>
+
+
+
+<div class="btn btn-primary btn-lg">
+    @Html.ActionLink("afrf","Index", "Admin")           
+</div>
+
+<div class="btn btn-primary btn-lg">
+    2
+</div>
