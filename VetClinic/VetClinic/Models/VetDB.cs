@@ -3,6 +3,10 @@ using System.Linq;
 
 namespace VetClinic.Models
 {
+    partial class Schedule
+    {
+    }
+
     partial class DoctorRole
     {
     }

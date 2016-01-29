@@ -1,14 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="VetClinicDB" Class="VetDBDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="WebSettings" ConnectionString="Data Source=NovaPC\SQLEXPRESS;Initial Catalog=VetClinicDB;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="VetClinicDBConnectionString" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.Schedule" Member="Schedule">
-    <Type Name="Schedule">
-      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Doctor" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Pet" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Date" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-      <Association Name="Doctor_Schedule" Member="Doctor1" ThisKey="Doctor" OtherKey="ID" Type="Doctor" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.Card" Member="Card">
     <Type Name="Card">
       <Column Name="Pet" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
@@ -31,8 +22,8 @@
       <Column Name="Name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="Email" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="Password" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Association Name="Doctor_Schedule" Member="Schedule" ThisKey="ID" OtherKey="Doctor" Type="Schedule" />
       <Association Name="Doctor_DoctorRole" Member="DoctorRole" ThisKey="ID" OtherKey="DoctorID" Type="DoctorRole" />
+      <Association Name="Doctor_Schedule" Member="Schedule" ThisKey="ID" OtherKey="Doctor" Type="Schedule" />
     </Type>
   </Table>
   <Table Name="dbo.DoctorRole" Member="DoctorRole">
@@ -60,6 +51,17 @@
       <Column Name="Code" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="Name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Association Name="Role_DoctorRole" Member="DoctorRole" ThisKey="ID" OtherKey="RoleID" Type="DoctorRole" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Schedule" Member="Schedule">
+    <Type Name="Schedule">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Doctor" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Pet" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Date" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Text" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Association Name="Doctor_Schedule" Member="Doctor1" ThisKey="Doctor" OtherKey="ID" Type="Doctor" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>
