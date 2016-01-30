@@ -173,10 +173,17 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+<<<<<<< HEAD
     <Content Include="Content\img\body.png" />
     <Content Include="Content\img\calpad.jpg" />
     <Content Include="Content\img\cells.png" />
     <Content Include="Content\img\popup.png" />
+=======
+    <Content Include="img\body.png" />
+    <Content Include="img\calpad.jpg" />
+    <Content Include="img\cells.png" />
+    <Content Include="img\popup.png" />
+>>>>>>> e8145fdf8335c4f24faff27b3c379d7f7f194389
     <Content Include="Content\master.css" />
     <Content Include="Global.asax" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
