@@ -2,12 +2,6 @@
 <ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="VetDB">
   <DataContextMoniker Name="/VetDBDataContext" />
   <nestedChildShapes>
-    <classShape Id="9d3cdd8c-a335-4996-9350-2206baf9e62d" absoluteBounds="1.25, 0.75, 2, 1.5785953776041666">
-      <DataClassMoniker Name="/VetDBDataContext/Schedule" />
-      <nestedChildShapes>
-        <elementListCompartment Id="150df2c1-c039-4f5d-8d3a-cc233aab14c1" absoluteBounds="1.2650000000000001, 1.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
     <classShape Id="335a611a-afcb-42d0-baf4-446126b8533b" absoluteBounds="6.25, 6.625, 2, 1.3862939453125">
       <DataClassMoniker Name="/VetDBDataContext/Card" />
       <nestedChildShapes>
@@ -44,25 +38,18 @@
         <elementListCompartment Id="6f3751a4-5791-4c4e-bc6a-56ea54fb4312" absoluteBounds="6.64, 3.71, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(2.75 : 7.31814697265625); (3.375 : 7.31814697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 7.31814697265625); (3.375 : 7.31814697265625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/VetDBDataContext/Client/Client_Pet" />
       <nodes>
         <classShapeMoniker Id="6cd0de59-6bcc-4efc-875f-a5388091d6ff" />
         <classShapeMoniker Id="3e8827fc-bfa7-49c0-bc29-57cb1351954c" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.375 : 7.31814697265625); (6.25 : 7.31814697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(5.375 : 7.31814697265625); (6.25 : 7.31814697265625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/VetDBDataContext/Pet/Pet_Card" />
       <nodes>
         <classShapeMoniker Id="3e8827fc-bfa7-49c0-bc29-57cb1351954c" />
         <classShapeMoniker Id="335a611a-afcb-42d0-baf4-446126b8533b" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(2.25 : 3.125); (2.25 : 2.32859537760417)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/VetDBDataContext/Doctor/Doctor_Schedule" />
-      <nodes>
-        <classShapeMoniker Id="29b5670d-268f-42e4-a20c-7b95467005d2" />
-        <classShapeMoniker Id="9d3cdd8c-a335-4996-9350-2206baf9e62d" />
       </nodes>
     </associationConnector>
     <associationConnector edgePoints="[(3.25 : 3.94314697265625); (4.125 : 3.94314697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
@@ -77,6 +64,19 @@
       <nodes>
         <classShapeMoniker Id="d6c7bfcc-cde0-4e2c-b7a5-0cc3e0459336" />
         <classShapeMoniker Id="01e3d099-c543-4eee-8aca-5fe82046d0b1" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="1469aa0e-0f5d-4ed0-8c9e-f15ec8693822" absoluteBounds="1.25, 0.625, 2, 1.9631982421875">
+      <DataClassMoniker Name="/VetDBDataContext/Schedule" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5f0188b7-adb8-4a02-a32e-9348547439bb" absoluteBounds="1.2649999999999997, 1.085, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.25 : 3.125); (2.25 : 2.5881982421875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/VetDBDataContext/Doctor/Doctor_Schedule" />
+      <nodes>
+        <classShapeMoniker Id="29b5670d-268f-42e4-a20c-7b95467005d2" />
+        <classShapeMoniker Id="1469aa0e-0f5d-4ed0-8c9e-f15ec8693822" />
       </nodes>
     </associationConnector>
   </nestedChildShapes>

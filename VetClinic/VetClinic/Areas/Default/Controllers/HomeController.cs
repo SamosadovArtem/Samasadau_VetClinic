@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using Ninject;
 using VetClinic.Controllers;
 using VetClinic.Models;
+using VetClinic.Infrastructure;
 
 namespace VetClinic.Areas.Default.Controllers
 {
@@ -24,10 +25,26 @@ namespace VetClinic.Areas.Default.Controllers
         public ActionResult Index()
         {
 
+            var cookie = new HttpCookie("test_cokie", DateTime.Now.ToString("dd.MM.yyyy"));
+ 
+            Response.SetCookie(cookie);
+
             var doctors = _repository.GetDoctors().ToList();
-           // List<Doctor> doctors = new List<Doctor>();
+            DateWork monthInfo = new DateWork();
+            monthInfo.GenerateDaysInfo(_repository.GetSchedules().ToList());
+            if (CurrentUser != null)
+            {
+                ViewBag.CurrentID = CurrentUser.ID;
+            }
+            else
+            {
+                ViewBag.CurrentID = 0;
+            }
+            // List<Doctor> doctors = new List<Doctor>();
             //doctors.Add(new Doctor());
-            return View(doctors);
+            
+            return View(monthInfo);
+            //return DateWork.GetFirstDayOfMonthName();
             //return doctors[0].Name;
         }
 

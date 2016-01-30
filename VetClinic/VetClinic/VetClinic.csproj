@@ -146,6 +146,8 @@
     <Compile Include="Infrastructure\Auth\DoctorProvider.cs" />
     <Compile Include="Infrastructure\Auth\IAuthentication.cs" />
     <Compile Include="Infrastructure\Auth\IProvider.cs" />
+    <Compile Include="Infrastructure\DateWork.cs" />
+    <Compile Include="Infrastructure\DayInfo.cs" />
     <Compile Include="Infrastructure\Validation\EmailValidation.cs" />
     <Compile Include="Mappers\DoctorMapper.cs" />
     <Compile Include="Mappers\IMapper.cs" />
@@ -171,6 +173,11 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\img\body.png" />
+    <Content Include="Content\img\calpad.jpg" />
+    <Content Include="Content\img\cells.png" />
+    <Content Include="Content\img\popup.png" />
+    <Content Include="Content\master.css" />
     <Content Include="Global.asax" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -190,9 +197,13 @@
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\coda.js" />
+    <Content Include="Scripts\jquery-1.3.min.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -210,7 +221,6 @@
     <Folder Include="Areas\Admin\Views\Admin\" />
     <Folder Include="Areas\Admin\Views\Shared\" />
     <Folder Include="Areas\Default\Models\" />
-    <Folder Include="Content\img\" />
     <Folder Include="Views\Shared\" />
   </ItemGroup>
   <ItemGroup>

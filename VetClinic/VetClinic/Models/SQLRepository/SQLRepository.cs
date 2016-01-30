@@ -46,5 +46,10 @@ namespace VetClinic.Models.SQLRepository
         {
             return dataBase.Doctor.FirstOrDefault(p => string.Compare(p.Email, email, true) == 0);
         }
+
+        public IQueryable<Schedule> GetSchedules()
+        {
+            return dataBase.Schedule;
+        }
     }
 }

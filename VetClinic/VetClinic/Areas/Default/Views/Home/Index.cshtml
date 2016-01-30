@@ -1,30 +1,89 @@
-﻿@model List<VetClinic.Models.Doctor>
+﻿@model  VetClinic.Infrastructure.DateWork
+@using System;
 
 @{
     ViewBag.Title = "Index";
     Layout = "~/Areas/Default/Views/Shared/_Layout.cshtml";
-    
+
 
 }
-
+<html>
 <head>
-    <link href="~/Content/bootstrap.css" rel="stylesheet">
-    <style>
-                .btn a {
-            color: white;
-            text-decoration: none;
-        }
-        </style>
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+
+    <script src="~/Scripts/jquery-1.3.min.js" type="text/javascript"> </script>
+    <script src="~/Scripts/coda.js" type="text/javascript"> </script>
+
+    <link href="@Url.Content("~/Content/master.css")" rel="stylesheet" type="text/css" />
 </head>
 
-<h2><span class="label label-info">Расписание приема</span></h2> <br>
+        
+
+<body>
+    <h2><span class="label label-info">Расписание приема</span></h2> <br>
+
+    @Html.ActionLink("Админка", "Index", "Admin")
 
 
+    <table cellspacing="0">
+        <thead>
+            <tr>
+                <th>Пн</th>
+                <th>Вт</th>
+                <th>Ср</th>
+                <th>Чт</th>
+                <th>Пт</th>
+                <th>Сб</th>
 
-<div class="btn btn-primary btn-lg">
-    @Html.ActionLink("afrf","Index", "Admin")           
-</div>
+                <th>Вс</th>
+            </tr>
+        </thead>
+        <tbody>
+    @{
+        int lineCount = Model.FristDayOfMonthNumber+1;
+    <td class="padding" colspan="@Model.FristDayOfMonthNumber"></td>
+        foreach (VetClinic.Infrastructure.DayInfo day in Model.daysInfo)
+        {
 
-<div class="btn btn-primary btn-lg">
-    2
-</div>
+
+            if ((day.isHaveTask) && (ViewBag.CurrentID==day.doctorID))
+            {
+                                    <td class="date_has_event">
+                        @day.dayNumber
+                                        
+                                        <div class="events">
+                                            <ul>
+                                                <li>
+                                                    <span class="title">@day.taskTitle</span>
+                                                    <span class="desc">@day.taskText</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        </td>
+            }
+
+            else
+            { 
+            if (Model.GetTodayNumber != day.dayNumber)
+             {
+                <td> @day.dayNumber</td>
+                }
+            else
+            {
+                <td class="today"> @day.dayNumber</td>
+                }
+            }
+            lineCount++;
+
+            if (lineCount == 8)
+            {
+                WriteLiteral("<tr>");
+                lineCount = 1;
+            }
+        }
+    }
+        </tbody>
+                    </table>
+
+</body>
+</html>

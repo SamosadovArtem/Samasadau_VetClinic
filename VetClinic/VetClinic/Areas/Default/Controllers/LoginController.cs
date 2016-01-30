@@ -28,6 +28,7 @@ namespace VetClinic.Areas.Default.Controllers
                 if (user != null)
                 {
                     return RedirectToAction("Index", "Home");
+                    
                 }
                 ModelState["Password"].Errors.Add("Пароли не совпадают");
             }

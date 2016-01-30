@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Security;
 using Ninject;
 using VetClinic.Models;
+using VetClinic.Models.SQLRepository;
 
 namespace VetClinic.Infrastructure.Auth
 {
@@ -19,6 +20,8 @@ namespace VetClinic.Infrastructure.Auth
 
         [Inject]
         public IRepository Repository { get; set; }
+        //public SQLRepository Repository { get; set; }
+        //public SQLRepository Repository = new SQLRepository();
 
         #region IAuthentication Members
 
@@ -62,7 +65,9 @@ namespace VetClinic.Infrastructure.Auth
                 Value = encTicket,
                 Expires = DateTime.Now.Add(FormsAuthentication.Timeout)
             };
-            HttpContext.Response.Cookies.Set(AuthCookie);
+            //HttpContext.Response.Cookies.Set(AuthCookie);
+            HttpContext.Response.Cookies[cookieName].Value = encTicket;
+            
         }
 
         public void LogOut()
