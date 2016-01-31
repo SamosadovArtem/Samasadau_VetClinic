@@ -1,4 +1,4 @@
-﻿@model  VetClinic.Infrastructure.DateWork
+﻿@model  VetClinic.Models.Month
 @using System;
 
 @{
@@ -40,43 +40,66 @@
         </thead>
         <tbody>
     @{
-        int lineCount = Model.FristDayOfMonthNumber+1;
-    <td class="padding" colspan="@Model.FristDayOfMonthNumber"></td>
-        foreach (VetClinic.Infrastructure.DayInfo day in Model.daysInfo)
+                    int lineCount = Model.fristDayOfMonthNumber+1;
+                    bool isHaveTaskForCurrentDoctor = false;
+    <td class="padding" colspan="@Model.fristDayOfMonthNumber"></td>
+        foreach (VetClinic.Models.Day day in Model.days)
         {
 
 
-<<<<<<< HEAD
-            if ((day.isHaveTask) && (ViewBag.CurrentID==day.doctorID))
-=======
-            if (day.isHaveTask)
->>>>>>> e8145fdf8335c4f24faff27b3c379d7f7f194389
+            if ((day.isHaveTask))
             {
-                                    <td class="date_has_event">
-                        @day.dayNumber
-                                        
-                                        <div class="events">
-                                            <ul>
-                                                <li>
-                                                    <span class="title">@day.taskTitle</span>
-                                                    <span class="desc">@day.taskText</span>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        </td>
+                for (int j = 0; j < day.taskList.Count; j++)
+                {
+                    if (day.taskList[j].doctorID == ViewBag.CurrentID)
+                    {
+                        isHaveTaskForCurrentDoctor = true;
+                    }
+                    else
+                    {
+                        isHaveTaskForCurrentDoctor = false;
+                    }
+                }
             }
+            else { isHaveTaskForCurrentDoctor = false; }
 
-            else
-            { 
-            if (Model.GetTodayNumber != day.dayNumber)
-             {
-                <td> @day.dayNumber</td>
-                }
-            else
+            if (isHaveTaskForCurrentDoctor)
             {
-                <td class="today"> @day.dayNumber</td>
+                <td class="date_has_event">
+                    @day.dayNumber
+                    <div class="events">
+                        <ul>
+                            @for (int i = 0; i < day.taskList.Count; i++)
+                            {
+
+
+                                <li>
+                                    <span class="title">@day.taskList[i].taskTitle</span>
+                                    <span class="desc">@day.taskList[i].taskText</span>
+                                </li>
+
+
+
+                            }
+                        </ul>
+                    </div>
+                </td>
                 }
-            }
+
+                else
+                {
+                    if (Model.GetTodayNumber != day.dayNumber)
+                    {
+                        <td> @day.dayNumber </td>
+                    }
+                    else
+                    {
+                        <td class="today"> @day.dayNumber</td>
+                    }
+                }
+            
+
+
             lineCount++;
 
             if (lineCount == 8)

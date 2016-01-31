@@ -9,9 +9,11 @@ namespace VetClinic.Models
     public interface IRepository
     {
         IQueryable<Doctor> GetDoctors();
+        IQueryable<Client> GetClients();
         IQueryable<Schedule> GetSchedules();
         bool AddSchedule(Schedule instance);
         bool AddDoctor(Doctor instance);
+        bool AddClient(Client instance);
         //bool Update();
         //bool Delete();
 

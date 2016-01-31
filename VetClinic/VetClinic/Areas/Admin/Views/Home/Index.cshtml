@@ -2,4 +2,20 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<html>
+<head>
+    <link href="@Url.Content("~/Content/bootstrap.css")" rel="stylesheet" type="text/css" />
+         </head>
+<body
+      <div class="well">
+    <ul class="nav nav-list">
+        <li class="nav-header">Панель администрирования</li>
+        <li class="active"><a href="">Записать на прием</a></li>
+        <li class="active">@Html.ActionLink("Оформить клиента","AddClient","AddToDataBase")</li>
+        <li class="active"><a href="#">Оформить питомца</a></li>
+        </ul>
+    </div>
+    gjh
+
+</body>
+    </html>

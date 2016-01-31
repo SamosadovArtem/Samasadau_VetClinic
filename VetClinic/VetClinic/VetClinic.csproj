@@ -129,6 +129,7 @@
   <ItemGroup>
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\AddToDataBaseController.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Default\Controllers\ErrorController.cs" />
@@ -152,6 +153,9 @@
     <Compile Include="Mappers\DoctorMapper.cs" />
     <Compile Include="Mappers\IMapper.cs" />
     <Compile Include="Models\IRepository.cs" />
+    <Compile Include="Models\Day.cs" />
+    <Compile Include="Models\Month.cs" />
+    <Compile Include="Models\Task.cs" />
     <Compile Include="Models\SQLRepository\SQLRepository.cs" />
     <Compile Include="Models\VetDB.cs">
       <DependentUpon>VetDB.dbml</DependentUpon>
@@ -161,6 +165,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>VetDB.dbml</DependentUpon>
     </Compile>
+    <Compile Include="Models\ViewModels\ClientView.cs" />
     <Compile Include="Models\ViewModels\DoctorView.cs" />
     <Compile Include="Models\ViewModels\LoginView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -173,17 +178,10 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-<<<<<<< HEAD
     <Content Include="Content\img\body.png" />
     <Content Include="Content\img\calpad.jpg" />
     <Content Include="Content\img\cells.png" />
     <Content Include="Content\img\popup.png" />
-=======
-    <Content Include="img\body.png" />
-    <Content Include="img\calpad.jpg" />
-    <Content Include="img\cells.png" />
-    <Content Include="img\popup.png" />
->>>>>>> e8145fdf8335c4f24faff27b3c379d7f7f194389
     <Content Include="Content\master.css" />
     <Content Include="Global.asax" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -201,6 +199,7 @@
     <Content Include="Areas\Default\Views\Login\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
     <Content Include="Areas\Default\Views\Error\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\AddToDataBase\AddClient.cshtml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -221,13 +220,14 @@
     <Content Include="WebActivator.dll" />
     <Content Include="Scripts\jquery-1.9.1.min.map" />
     <Content Include="Areas\Default\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\Admin\Views\Admin\" />
-    <Folder Include="Areas\Admin\Views\Shared\" />
     <Folder Include="Areas\Default\Models\" />
+    <Folder Include="Models\ScheduleModels\" />
     <Folder Include="Views\Shared\" />
   </ItemGroup>
   <ItemGroup>

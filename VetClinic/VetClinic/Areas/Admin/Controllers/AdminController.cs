@@ -7,6 +7,7 @@ using VetClinic.Controllers;
 
 namespace VetClinic.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class AdminController : BaseController
     {
         //

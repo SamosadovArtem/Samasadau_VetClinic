@@ -131,6 +131,6 @@ E:\SoftProgramming\Test\VetClinic\VetClinic\bin\ru\System.Web.Razor.resources.dl
 E:\SoftProgramming\Test\VetClinic\VetClinic\bin\ru\System.Web.WebPages.resources.dll
 E:\SoftProgramming\Test\VetClinic\VetClinic\bin\ru\System.Web.WebPages.Deployment.resources.dll
 E:\SoftProgramming\Test\VetClinic\VetClinic\bin\ru\System.Web.WebPages.Razor.resources.dll
-E:\SoftProgramming\Test\VetClinic\VetClinic\obj\Debug\VetClinic.csprojResolveAssemblyReference.cache
 E:\SoftProgramming\Test\VetClinic\VetClinic\obj\Debug\VetClinic.dll
 E:\SoftProgramming\Test\VetClinic\VetClinic\obj\Debug\VetClinic.pdb
+E:\SoftProgramming\Test\VetClinic\VetClinic\obj\Debug\VetClinic.csprojResolveAssemblyReference.cache

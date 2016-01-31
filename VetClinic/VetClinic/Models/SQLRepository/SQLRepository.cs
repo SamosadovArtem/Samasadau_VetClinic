@@ -51,5 +51,17 @@ namespace VetClinic.Models.SQLRepository
         {
             return dataBase.Schedule;
         }
+
+        public IQueryable<Client> GetClients()
+        {
+            return dataBase.Client;
+        }
+
+        public bool AddClient(Client instance)
+        {
+            dataBase.Client.InsertOnSubmit(instance);
+            dataBase.Client.Context.SubmitChanges();
+            return true;
+        }
     }
 }

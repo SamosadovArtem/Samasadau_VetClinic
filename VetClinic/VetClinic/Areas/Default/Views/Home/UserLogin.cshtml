@@ -13,9 +13,13 @@
         <li>@Html.ActionLink(Model.Name, "Index", "Home")</li>
     </ul>
     <ul class="nav navbar-nav">
+        <li>@Html.ActionLink("Подробнее о сегодняшних приемах", "Index", "Home")</li>
+    </ul>
+    <ul class="nav navbar-nav">
         <li>@Html.ActionLink("Выход", "Logout", "Login")</li>
     </ul>
-        
+
+
 
 }
 else

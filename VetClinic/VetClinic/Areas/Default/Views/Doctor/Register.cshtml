@@ -14,64 +14,66 @@
 </head>
 <body>
 
-    <div>
+    <blockquote>
+        <div>
 
 
-        @using (Html.BeginForm("Register", "Doctor", FormMethod.Post, new
-        {
-            @class = "formhorizontal"
-        }))
-        {
-            <fieldset>
-                <div class="control-group">
-                    <label class="control-label" for="Name">
-                        Name
-                    </label>
-                    <div class="controls">
-                        @Html.TextBox("Name", Model.Name, new { @class = "form-control"})
-                        @Html.ValidationMessage("Name")
+            @using (Html.BeginForm("Register", "Doctor", FormMethod.Post, new
+            {
+                @class = "formhorizontal"
+            }))
+            {
+                <fieldset>
+                    <div class="control-group">
+                        <label class="control-label" for="Name">
+                            Name
+                        </label>
+                        <div class="controls">
+                            @Html.TextBox("Name", Model.Name, new { @class = "form-control" })
+                            @Html.ValidationMessage("Name")
+                        </div>
                     </div>
-                </div>
-                <div class="control-group">
-                    <label class="control-label" for="Email">
-                        Email
-                    </label>
-                    <div class="controls">
-                        
-                        @Html.TextBox("Email", Model.Email, new { @class = "form-control" })
-                        @Html.ValidationMessage("Email")
-                    </div>
-                </div>
-                <div class="control-group">
-                    <label class="control-label" for="FirstName">
-                        Password
-                    </label>
-                    <div class="controls">
-                        
-                        @Html.Password("Password", Model.Password, new { @class = "form-control" })
-                        @Html.ValidationMessage("Password")
-                    </div>
-                </div>
+                    <div class="control-group">
+                        <label class="control-label" for="Email">
+                            Email
+                        </label>
+                        <div class="controls">
 
-                <div class="control-group">
-                    <label class="control-label" for="FirstName">
-                        Confirm Password
-                    </label>
-                    <div class="controls">
-                        
-                        @Html.Password("ConfirmPassword", Model.ConfirmPassword, new { @class = "form-control" })
-                        @Html.ValidationMessage("ConfirmPassword")
+                            @Html.TextBox("Email", Model.Email, new { @class = "form-control" })
+                            @Html.ValidationMessage("Email")
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="FirstName">
+                            Password
+                        </label>
+                        <div class="controls">
+
+                            @Html.Password("Password", Model.Password, new { @class = "form-control" })
+                            @Html.ValidationMessage("Password")
+                        </div>
                     </div>
 
-                    <div class="form-actions">
-                        <button type="submit" class="btn btn-primary">
-                            Register
-                        </button>
-                        @Html.ActionLink("Cancel", "Index", "Home", null, new { @class = "btn" })
-                    </div>
-            </fieldset>
-        }
+                    <div class="control-group">
+                        <label class="control-label" for="FirstName">
+                            Confirm Password
+                        </label>
+                        <div class="controls">
 
-    </div>
+                            @Html.Password("ConfirmPassword", Model.ConfirmPassword, new { @class = "form-control" })
+                            @Html.ValidationMessage("ConfirmPassword")
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary">
+                                Register
+                            </button>
+                            @Html.ActionLink("Cancel", "Index", "Home", null, new { @class = "btn" })
+                        </div>
+                </fieldset>
+            }
+
+        </div>
+        </blockquote>
 </body>
 </html>

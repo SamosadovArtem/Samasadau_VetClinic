@@ -6,11 +6,11 @@ using System.Web.Mvc;
 
 namespace VetClinic.Areas.Admin.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : AdminController
     {
         //
         // GET: /Admin/Home/
-        [Authorize(Roles = "Admin")]
+        
         public ActionResult Index()
         {
             return View();
