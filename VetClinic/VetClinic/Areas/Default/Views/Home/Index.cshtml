@@ -40,9 +40,12 @@
         </thead>
         <tbody>
     @{
-                    int lineCount = Model.fristDayOfMonthNumber+1;
-                    bool isHaveTaskForCurrentDoctor = false;
+        int lineCount = Model.fristDayOfMonthNumber+1;
+        bool isHaveTaskForCurrentDoctor = false;
+        if (Model.fristDayOfMonthNumber != 0)
+        {
     <td class="padding" colspan="@Model.fristDayOfMonthNumber"></td>
+        }
         foreach (VetClinic.Models.Day day in Model.days)
         {
 

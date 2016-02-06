@@ -11,9 +11,11 @@ namespace VetClinic.Models
         IQueryable<Doctor> GetDoctors();
         IQueryable<Client> GetClients();
         IQueryable<Schedule> GetSchedules();
+        IQueryable<Pet> GetPets();
         bool AddSchedule(Schedule instance);
         bool AddDoctor(Doctor instance);
         bool AddClient(Client instance);
+        bool AddPet(Pet instance);
         //bool Update();
         //bool Delete();
 

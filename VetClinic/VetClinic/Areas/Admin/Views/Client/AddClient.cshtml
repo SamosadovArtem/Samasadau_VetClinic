@@ -1,11 +1,11 @@
 ﻿@model VetClinic.Models.ViewModels.ClientView
 
 @{
-    <link href="~/Content/bootstrap.css" rel="stylesheet">
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
 <h2>AddClient</h2>
-@using (Html.BeginForm("AddClient", "AddToDataBase", FormMethod.Post, new
+@using (Html.BeginForm("AddClient", "Client", FormMethod.Post, new
 {
     @class = "formhorizontal"
 }))

@@ -8,7 +8,7 @@ using VetClinic.Models;
 
 namespace VetClinic.Areas.Admin.Controllers
 {
-    public class AddToDataBaseController :  AdminController
+    public class ClientController :  AdminController
     {
         //
         // GET: /Admin/AddToDataBase/
@@ -32,16 +32,17 @@ namespace VetClinic.Areas.Admin.Controllers
             if (anyUser)
             {
                 ModelState.AddModelError("Email", "Пользователь с таким email уже зарегистрирован");
+                
             }
 
             if (ModelState.IsValid)
             {
                 var currentClient = (Client)_mapper.Map(newClient, typeof(ClientView), typeof(Client));
                 this.SaveClient(currentClient);
-
-
+                return RedirectToAction("Index", "Success");
             }
             return View(newClient);
+            // return View("~Areas/Admin/Views/Success/Index.cshtml");
 
         }
         private void SaveClient(Client currentClient)
@@ -49,14 +50,6 @@ namespace VetClinic.Areas.Admin.Controllers
             _repository.AddClient(currentClient);
         }
 
-        public ActionResult AddPet()
-        {
-            return View();
-        }
 
-        public ActionResult AddTask()
-        {
-            return View();
-        }
     }
 }

@@ -14,18 +14,11 @@
     <nav class="navbar navbar-default">
         <div class="container-fluid">
             <div class="navbar-header">
-               <div class="navbar-brand">@Html.ActionLink("На главную", "Index", "Home")</div>
+               <div class="navbar-brand">@Html.ActionLink("На главную", "Index", new { area = "Default", controller = "Home" })</div>
             </div>
-            <ul class="nav navbar-nav">
-                <li>@Html.Action("UserLogin", "Home")</li>
-            </ul>
 
             <ul class="nav navbar-nav">
-                <li>@Html.ActionLink("Администрирование", "Index", "Admin")</li>
-            </ul>
-
-            <ul class="nav navbar-nav">
-                <li>@Html.ActionLink("Помощь", "Index", "Help")</li>
+                <li>@Html.ActionLink("Администрирование", "Index", "Home")</li>
             </ul>
 
 
@@ -34,6 +27,5 @@
 
         @RenderBody()
 
-        @RenderSection("scripts", required: false)
 </body>
 </html>

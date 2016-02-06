@@ -1,0 +1,60 @@
+﻿@model VetClinic.Models.ViewModels.PetView
+
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AddPet</title>
+</head>
+<body>
+    <div>
+        @using (Html.BeginForm("AddPet", "Pet", FormMethod.Post, new
+        {
+            @class = "formhorizontal"
+        }))
+        {
+            <blockquote>
+                <fieldset>
+                    <div class="control-group">
+                        <label class="control-label" for="Name">
+                            Name
+                        </label>
+                        <div class="controls">
+                            @Html.TextBox("Name", Model.name, new { @class = "form-control" })
+                            @Html.ValidationMessage("Name")
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="kind">
+                            Порода
+                        </label>
+                        <div class="controls">
+                            @Html.TextBox("kind", Model.kind, new { @class = "form-control" })
+                            @Html.ValidationMessage("kind")
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="master">
+                            Хозяин
+                        </label>
+                        <div class="controls">
+                            @Html.DropDownListFor(m => m.master, new MultiSelectList(Model.mastersList, "ID", "Name"))
+                            @Html.ValidationMessage("master")
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">
+                            Добавить
+                        </button>
+                    </div>
+                </fieldset>
+                </blockquote>
+                    }
+</div>
+</body>
+</html>

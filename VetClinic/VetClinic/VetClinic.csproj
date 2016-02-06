@@ -129,9 +129,12 @@
   <ItemGroup>
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
-    <Compile Include="Areas\Admin\Controllers\AddToDataBaseController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ClientController.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\PetController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ScheduleController.cs" />
+    <Compile Include="Areas\Admin\Controllers\SuccessController.cs" />
     <Compile Include="Areas\Default\Controllers\ErrorController.cs" />
     <Compile Include="Areas\Default\Controllers\LoginController.cs" />
     <Compile Include="Areas\Default\DefaultAreaRegistration.cs" />
@@ -168,6 +171,8 @@
     <Compile Include="Models\ViewModels\ClientView.cs" />
     <Compile Include="Models\ViewModels\DoctorView.cs" />
     <Compile Include="Models\ViewModels\LoginView.cs" />
+    <Compile Include="Models\ViewModels\PetView.cs" />
+    <Compile Include="Models\ViewModels\ScheduleView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -199,7 +204,10 @@
     <Content Include="Areas\Default\Views\Login\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
     <Content Include="Areas\Default\Views\Error\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\AddToDataBase\AddClient.cshtml" />
+    <Content Include="Areas\Admin\Views\Client\AddClient.cshtml" />
+    <Content Include="Areas\Admin\Views\Pet\AddPet.cshtml" />
+    <Content Include="Areas\Admin\Views\Schedule\AddSchedule.cshtml" />
+    <Content Include="Areas\Admin\Views\Success\Index.cshtml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />

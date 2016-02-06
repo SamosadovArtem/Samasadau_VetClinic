@@ -1,0 +1,19 @@
+﻿@{
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div>
+        <h2>Оформление прошло успешно</h2>
+        @Html.ActionLink("Вернуться на главную страницу", "Index", new { area = "Default", controller = "Home" })
+        @Html.ActionLink("Вернуться к администрированию", "Index","Home")
+    </div>
+</body>
+</html>

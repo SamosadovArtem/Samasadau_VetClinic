@@ -22,7 +22,9 @@ namespace VetClinic.Models.SQLRepository
         }
         public bool AddSchedule(Schedule instance)
         {
-            throw new NotImplementedException();
+            dataBase.Schedule.InsertOnSubmit(instance);
+            dataBase.Schedule.Context.SubmitChanges();
+            return true;
         }
 
 
@@ -62,6 +64,18 @@ namespace VetClinic.Models.SQLRepository
             dataBase.Client.InsertOnSubmit(instance);
             dataBase.Client.Context.SubmitChanges();
             return true;
+        }
+
+        public bool AddPet(Pet instance)
+        {
+            dataBase.Pet.InsertOnSubmit(instance);
+            dataBase.Pet.Context.SubmitChanges();
+            return true;
+        }
+
+        public IQueryable<Pet> GetPets()
+        {
+            return dataBase.Pet;
         }
     }
 }
