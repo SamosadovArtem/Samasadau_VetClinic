@@ -3,15 +3,18 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace VetClinic.Models
 {
     public class Month
     {
 
+        private IRepository repository;
         public List<Day> days { get; }
         public int daysInMonth { get; }
         public int fristDayOfMonthNumber { get; }
+        public int lastDayOfMonthNumber { get; }
         public int GetTodayNumber
         {
             get
@@ -22,13 +25,16 @@ namespace VetClinic.Models
 
         public Month()
         {
-            fristDayOfMonthNumber = GetFirstDayOfMonthNumber();
+            repository = DependencyResolver.Current.GetService<IRepository>();
+            fristDayOfMonthNumber = GetDayOfMonthNumber(DateTime.Today);
             daysInMonth = DateTime.DaysInMonth(DateTime.Today.Year, DateTime.Today.Month);
             days = new List<Day>();
         }
-        private static int GetFirstDayOfMonthNumber()
+        private static int GetDayOfMonthNumber(DateTime userDate)
         {
-            DateTime today = DateTime.Today;
+            //TODO
+            DateTime today = userDate;
+            //DateTime today = DateTime.Today;
             int daysFromFirstDay = today.Day - 1;
             DateTime firstDayOfMonth = today.AddDays(-daysFromFirstDay);
 
@@ -93,11 +99,18 @@ namespace VetClinic.Models
             {
                 if (currentDate == allSchedule[i].Date)
                 {
-                    Task tempTask = new Task(allSchedule[i].Doctor, allSchedule[i].Title, allSchedule[i].Text);
+                    string petName = GetPetNameByID(allSchedule[i].Pet);
+                    Task tempTask = new Task(allSchedule[i].Doctor, allSchedule[i].Title, allSchedule[i].Text,allSchedule[i].Pet, petName);
                     taskList.Add(tempTask);
                 }
             }
             return taskList;
         }
+        private string GetPetNameByID(int petID)
+        {
+            string petName = repository.GetPetNameByID(petID);
+            return petName;
+        }
     }
+
 }

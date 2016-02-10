@@ -135,6 +135,8 @@
     <Compile Include="Areas\Admin\Controllers\PetController.cs" />
     <Compile Include="Areas\Admin\Controllers\ScheduleController.cs" />
     <Compile Include="Areas\Admin\Controllers\SuccessController.cs" />
+    <Compile Include="Areas\Default\Controllers\CardController.cs" />
+    <Compile Include="Areas\Default\Controllers\DetailController.cs" />
     <Compile Include="Areas\Default\Controllers\ErrorController.cs" />
     <Compile Include="Areas\Default\Controllers\LoginController.cs" />
     <Compile Include="Areas\Default\DefaultAreaRegistration.cs" />
@@ -168,6 +170,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>VetDB.dbml</DependentUpon>
     </Compile>
+    <Compile Include="Models\ViewModels\CardView.cs" />
     <Compile Include="Models\ViewModels\ClientView.cs" />
     <Compile Include="Models\ViewModels\DoctorView.cs" />
     <Compile Include="Models\ViewModels\LoginView.cs" />
@@ -208,6 +211,8 @@
     <Content Include="Areas\Admin\Views\Pet\AddPet.cshtml" />
     <Content Include="Areas\Admin\Views\Schedule\AddSchedule.cshtml" />
     <Content Include="Areas\Admin\Views\Success\Index.cshtml" />
+    <Content Include="Areas\Default\Views\Detail\Index.cshtml" />
+    <Content Include="Areas\Default\Views\Card\Index.cshtml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />

@@ -41,7 +41,7 @@ namespace VetClinic.Areas.Admin.Controllers
             {
                 var currentSchedule = (Schedule)_mapper.Map(newSchedule, typeof(ScheduleView), typeof(Schedule));
                 this.SavePet(currentSchedule);
-
+                return RedirectToAction("Index", "Success");
 
             }
             newSchedule.DoctorList = _repository.GetDoctors().ToList();

@@ -1,0 +1,20 @@
+﻿@model List<VetClinic.Models.Card>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Default/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+@{
+    foreach(VetClinic.Models.Card card in Model)
+    {
+        WriteLiteral("<pre>");
+        @card.Disease 
+        WriteLiteral("<br>");
+         @card.Date
+        WriteLiteral("</pre>");
+        WriteLiteral("<br>");
+    }
+
+}

@@ -16,6 +16,8 @@ namespace VetClinic.Models
         bool AddDoctor(Doctor instance);
         bool AddClient(Client instance);
         bool AddPet(Pet instance);
+        string GetPetNameByID(int petID);
+        IQueryable<Card> GetCardByPetID(int petID);
         //bool Update();
         //bool Delete();
 

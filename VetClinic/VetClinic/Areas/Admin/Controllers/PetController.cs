@@ -41,7 +41,7 @@ namespace VetClinic.Areas.Admin.Controllers
             {
                 var currentPet = (Pet)_mapper.Map(newPet, typeof(PetView), typeof(Pet));
                 this.SavePet(currentPet);
-
+                return RedirectToAction("Index", "Success");
 
             }
             newPet.mastersList = _repository.GetClients().ToList();

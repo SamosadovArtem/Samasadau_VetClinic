@@ -77,5 +77,20 @@ namespace VetClinic.Models.SQLRepository
         {
             return dataBase.Pet;
         }
+
+        public string GetPetNameByID(int petID)
+        {
+            Pet currentPet = (from p in dataBase.Pet
+                              where p.ID == petID
+                              select p).Single<Pet>();
+            return currentPet.Name;
+        }
+
+        public IQueryable<Card> GetCardByPetID(int petID)
+        {
+            return (from c in dataBase.Card
+                    where c.Pet == petID
+                    select c);
+        }
     }
 }

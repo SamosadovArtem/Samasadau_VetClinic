@@ -22,7 +22,6 @@
 <body>
     <h2><span class="label label-info">Расписание приема</span></h2> <br>
 
-    @Html.ActionLink("Админка", "Index", "Admin")
 
 
     <table cellspacing="0">
@@ -98,9 +97,9 @@
                     else
                     {
                         <td class="today"> @day.dayNumber</td>
-                    }
                 }
-            
+            }
+
 
 
             lineCount++;
@@ -111,7 +110,13 @@
                 lineCount = 1;
             }
         }
+        for (int i = lineCount; i <= 7; i++)
+        {
+            <td class="padding"></td>
+        }
     }
+       
+        
         </tbody>
                     </table>
 

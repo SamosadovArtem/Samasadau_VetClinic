@@ -1,0 +1,47 @@
+﻿@model VetClinic.Models.Month
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Default/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+@{
+
+    bool isHaveTaskForCurrentDoctor = false;
+    foreach (VetClinic.Models.Day day in Model.days)
+    {
+        if ((day.isHaveTask))
+        {
+            for (int j = 0; j < day.taskList.Count; j++)
+            {
+                if (day.taskList[j].doctorID == ViewBag.CurrentID)
+                {
+                    isHaveTaskForCurrentDoctor = true;
+                }
+                else
+                {
+                    isHaveTaskForCurrentDoctor = false;
+                }
+            }
+        }
+        else { isHaveTaskForCurrentDoctor = false; }
+
+        if (isHaveTaskForCurrentDoctor)
+        {
+            <form action="/Detail/Index" method="Post">
+                <fieldset>
+                    Просмотреть карточку питомца <select id="userPetID" name="userPetID">
+                        @for (int i = 0; i < day.taskList.Count; i++)
+                    {
+                            <option value=@day.taskList[i].petID>@day.taskList[i].petName</option>
+                        }
+                    </select>
+                    <p><input type="submit" value="Submit" /> </p>
+                </fieldset>
+            </form>
+        }
+    }
+}
+
+
