@@ -1,0 +1,73 @@
+﻿@model VetClinic.Models.ViewModels.ScheduleView
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Default/Views/Shared/_Layout.cshtml";
+}
+
+<body>
+    <h2>Записаться за прием</h2>
+    <h3>Если вашего питомца нету в базе данных - обратитесь к администратору</h3>
+    <div>
+        @using (Html.BeginForm("Index", "Entry", FormMethod.Post, new
+        {
+            @class = "formhorizontal"
+        }))
+        {
+            <blockquote>
+                <fieldset>
+                    <div class="control-group">
+                        <label class="control-label" for="Title">
+                            Заголовок
+                        </label>
+                        <div class="controls">
+                            @Html.TextBox("Title", Model.Title, new { @class = "form-control" })
+                            @Html.ValidationMessage("Title")
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="Text">
+                            Подробности
+                        </label>
+                        <div class="controls">
+                            @Html.TextBox("Text", Model.Text, new { @class = "form-control" })
+                            @Html.ValidationMessage("Text")
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="Doctor">
+                            Доктор
+                        </label>
+                        <div class="controls">
+                            @Html.DropDownListFor(m => m.Doctor, new MultiSelectList(Model.DoctorList, "ID", "Name"))
+                            @Html.ValidationMessage("Doctor")
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="Pet">
+                            Питомец
+                        </label>
+                        <div class="controls">
+                            @Html.DropDownListFor(m => m.Pet, new MultiSelectList(Model.PetList, "ID", "Name"))
+                            @Html.ValidationMessage("Pet")
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="Date">
+                            Дата приема
+                        </label>
+                        <div class="controls">
+                            @Html.EditorFor(m => m.date, "{0:dd/MM/yyyy}")
+                            @Html.ValidationMessage("Date")
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">
+                            Добавить
+                        </button>
+                    </div>
+                </fieldset>
+            </blockquote>
+        }
+    </div>
+</body>

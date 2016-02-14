@@ -11,6 +11,7 @@ html {
 }
 body {
   margin: 0;
+  background: url(../Content/img/body.png) repeat-x;
 }
 article,
 aside,

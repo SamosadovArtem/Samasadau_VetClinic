@@ -137,8 +137,10 @@
     <Compile Include="Areas\Admin\Controllers\SuccessController.cs" />
     <Compile Include="Areas\Default\Controllers\CardController.cs" />
     <Compile Include="Areas\Default\Controllers\DetailController.cs" />
+    <Compile Include="Areas\Default\Controllers\EntryController.cs" />
     <Compile Include="Areas\Default\Controllers\ErrorController.cs" />
     <Compile Include="Areas\Default\Controllers\LoginController.cs" />
+    <Compile Include="Areas\Default\Controllers\SuccessController.cs" />
     <Compile Include="Areas\Default\DefaultAreaRegistration.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Areas\Default\Controllers\DoctorController.cs" />
@@ -213,6 +215,8 @@
     <Content Include="Areas\Admin\Views\Success\Index.cshtml" />
     <Content Include="Areas\Default\Views\Detail\Index.cshtml" />
     <Content Include="Areas\Default\Views\Card\Index.cshtml" />
+    <Content Include="Areas\Default\Views\Entry\Index.cshtml" />
+    <Content Include="Areas\Default\Views\Success\Index.cshtml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
