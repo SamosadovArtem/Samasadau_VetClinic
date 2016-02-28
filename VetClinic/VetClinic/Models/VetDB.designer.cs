@@ -30,12 +30,6 @@ namespace VetClinic.Models
 		
     #region Определения метода расширяемости
     partial void OnCreated();
-    partial void InsertClient(Client instance);
-    partial void UpdateClient(Client instance);
-    partial void DeleteClient(Client instance);
-    partial void InsertDoctor(Doctor instance);
-    partial void UpdateDoctor(Doctor instance);
-    partial void DeleteDoctor(Doctor instance);
     partial void InsertDoctorRole(DoctorRole instance);
     partial void UpdateDoctorRole(DoctorRole instance);
     partial void DeleteDoctorRole(DoctorRole instance);
@@ -48,6 +42,15 @@ namespace VetClinic.Models
     partial void InsertSchedule(Schedule instance);
     partial void UpdateSchedule(Schedule instance);
     partial void DeleteSchedule(Schedule instance);
+    partial void InsertClient(Client instance);
+    partial void UpdateClient(Client instance);
+    partial void DeleteClient(Client instance);
+    partial void InsertDoctor(Doctor instance);
+    partial void UpdateDoctor(Doctor instance);
+    partial void DeleteDoctor(Doctor instance);
+    partial void InsertRecall(Recall instance);
+    partial void UpdateRecall(Recall instance);
+    partial void DeleteRecall(Recall instance);
     #endregion
 		
 		public VetDBDataContext() : 
@@ -88,22 +91,6 @@ namespace VetClinic.Models
 			}
 		}
 		
-		public System.Data.Linq.Table<Client> Client
-		{
-			get
-			{
-				return this.GetTable<Client>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Doctor> Doctor
-		{
-			get
-			{
-				return this.GetTable<Doctor>();
-			}
-		}
-		
 		public System.Data.Linq.Table<DoctorRole> DoctorRole
 		{
 			get
@@ -133,6 +120,30 @@ namespace VetClinic.Models
 			get
 			{
 				return this.GetTable<Schedule>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Client> Client
+		{
+			get
+			{
+				return this.GetTable<Client>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Doctor> Doctor
+		{
+			get
+			{
+				return this.GetTable<Doctor>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Recall> Recall
+		{
+			get
+			{
+				return this.GetTable<Recall>();
 			}
 		}
 	}
@@ -200,334 +211,6 @@ namespace VetClinic.Models
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Client")]
-	public partial class Client : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _ID;
-		
-		private string _Name;
-		
-		private string _Email;
-		
-		private EntitySet<Pet> _Pet;
-		
-    #region Определения метода расширяемости
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIDChanging(int value);
-    partial void OnIDChanged();
-    partial void OnNameChanging(string value);
-    partial void OnNameChanged();
-    partial void OnEmailChanging(string value);
-    partial void OnEmailChanged();
-    #endregion
-		
-		public Client()
-		{
-			this._Pet = new EntitySet<Pet>(new Action<Pet>(this.attach_Pet), new Action<Pet>(this.detach_Pet));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int ID
-		{
-			get
-			{
-				return this._ID;
-			}
-			set
-			{
-				if ((this._ID != value))
-				{
-					this.OnIDChanging(value);
-					this.SendPropertyChanging();
-					this._ID = value;
-					this.SendPropertyChanged("ID");
-					this.OnIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string Name
-		{
-			get
-			{
-				return this._Name;
-			}
-			set
-			{
-				if ((this._Name != value))
-				{
-					this.OnNameChanging(value);
-					this.SendPropertyChanging();
-					this._Name = value;
-					this.SendPropertyChanged("Name");
-					this.OnNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string Email
-		{
-			get
-			{
-				return this._Email;
-			}
-			set
-			{
-				if ((this._Email != value))
-				{
-					this.OnEmailChanging(value);
-					this.SendPropertyChanging();
-					this._Email = value;
-					this.SendPropertyChanged("Email");
-					this.OnEmailChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Client_Pet", Storage="_Pet", ThisKey="ID", OtherKey="Master")]
-		public EntitySet<Pet> Pet
-		{
-			get
-			{
-				return this._Pet;
-			}
-			set
-			{
-				this._Pet.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Pet(Pet entity)
-		{
-			this.SendPropertyChanging();
-			entity.Client = this;
-		}
-		
-		private void detach_Pet(Pet entity)
-		{
-			this.SendPropertyChanging();
-			entity.Client = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Doctor")]
-	public partial class Doctor : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _ID;
-		
-		private string _Name;
-		
-		private string _Email;
-		
-		private string _Password;
-		
-		private EntitySet<DoctorRole> _DoctorRole;
-		
-		private EntitySet<Schedule> _Schedule;
-		
-    #region Определения метода расширяемости
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIDChanging(int value);
-    partial void OnIDChanged();
-    partial void OnNameChanging(string value);
-    partial void OnNameChanged();
-    partial void OnEmailChanging(string value);
-    partial void OnEmailChanged();
-    partial void OnPasswordChanging(string value);
-    partial void OnPasswordChanged();
-    #endregion
-		
-		public Doctor()
-		{
-			this._DoctorRole = new EntitySet<DoctorRole>(new Action<DoctorRole>(this.attach_DoctorRole), new Action<DoctorRole>(this.detach_DoctorRole));
-			this._Schedule = new EntitySet<Schedule>(new Action<Schedule>(this.attach_Schedule), new Action<Schedule>(this.detach_Schedule));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int ID
-		{
-			get
-			{
-				return this._ID;
-			}
-			set
-			{
-				if ((this._ID != value))
-				{
-					this.OnIDChanging(value);
-					this.SendPropertyChanging();
-					this._ID = value;
-					this.SendPropertyChanged("ID");
-					this.OnIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string Name
-		{
-			get
-			{
-				return this._Name;
-			}
-			set
-			{
-				if ((this._Name != value))
-				{
-					this.OnNameChanging(value);
-					this.SendPropertyChanging();
-					this._Name = value;
-					this.SendPropertyChanged("Name");
-					this.OnNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string Email
-		{
-			get
-			{
-				return this._Email;
-			}
-			set
-			{
-				if ((this._Email != value))
-				{
-					this.OnEmailChanging(value);
-					this.SendPropertyChanging();
-					this._Email = value;
-					this.SendPropertyChanged("Email");
-					this.OnEmailChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Password", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string Password
-		{
-			get
-			{
-				return this._Password;
-			}
-			set
-			{
-				if ((this._Password != value))
-				{
-					this.OnPasswordChanging(value);
-					this.SendPropertyChanging();
-					this._Password = value;
-					this.SendPropertyChanged("Password");
-					this.OnPasswordChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Doctor_DoctorRole", Storage="_DoctorRole", ThisKey="ID", OtherKey="DoctorID")]
-		public EntitySet<DoctorRole> DoctorRole
-		{
-			get
-			{
-				return this._DoctorRole;
-			}
-			set
-			{
-				this._DoctorRole.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Doctor_Schedule", Storage="_Schedule", ThisKey="ID", OtherKey="Doctor")]
-		public EntitySet<Schedule> Schedule
-		{
-			get
-			{
-				return this._Schedule;
-			}
-			set
-			{
-				this._Schedule.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_DoctorRole(DoctorRole entity)
-		{
-			this.SendPropertyChanging();
-			entity.Doctor = this;
-		}
-		
-		private void detach_DoctorRole(DoctorRole entity)
-		{
-			this.SendPropertyChanging();
-			entity.Doctor = null;
-		}
-		
-		private void attach_Schedule(Schedule entity)
-		{
-			this.SendPropertyChanging();
-			entity.Doctor1 = this;
-		}
-		
-		private void detach_Schedule(Schedule entity)
-		{
-			this.SendPropertyChanging();
-			entity.Doctor1 = null;
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.DoctorRole")]
 	public partial class DoctorRole : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -540,9 +223,9 @@ namespace VetClinic.Models
 		
 		private int _RoleID;
 		
-		private EntityRef<Doctor> _Doctor;
-		
 		private EntityRef<Role> _Role;
+		
+		private EntityRef<Doctor> _Doctor;
 		
     #region Определения метода расширяемости
     partial void OnLoaded();
@@ -558,8 +241,8 @@ namespace VetClinic.Models
 		
 		public DoctorRole()
 		{
-			this._Doctor = default(EntityRef<Doctor>);
 			this._Role = default(EntityRef<Role>);
+			this._Doctor = default(EntityRef<Doctor>);
 			OnCreated();
 		}
 		
@@ -631,40 +314,6 @@ namespace VetClinic.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Doctor_DoctorRole", Storage="_Doctor", ThisKey="DoctorID", OtherKey="ID", IsForeignKey=true)]
-		public Doctor Doctor
-		{
-			get
-			{
-				return this._Doctor.Entity;
-			}
-			set
-			{
-				Doctor previousValue = this._Doctor.Entity;
-				if (((previousValue != value) 
-							|| (this._Doctor.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Doctor.Entity = null;
-						previousValue.DoctorRole.Remove(this);
-					}
-					this._Doctor.Entity = value;
-					if ((value != null))
-					{
-						value.DoctorRole.Add(this);
-						this._DoctorID = value.ID;
-					}
-					else
-					{
-						this._DoctorID = default(int);
-					}
-					this.SendPropertyChanged("Doctor");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Role_DoctorRole", Storage="_Role", ThisKey="RoleID", OtherKey="ID", IsForeignKey=true)]
 		public Role Role
 		{
@@ -695,6 +344,40 @@ namespace VetClinic.Models
 						this._RoleID = default(int);
 					}
 					this.SendPropertyChanged("Role");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Doctor_DoctorRole", Storage="_Doctor", ThisKey="DoctorID", OtherKey="ID", IsForeignKey=true)]
+		public Doctor Doctor
+		{
+			get
+			{
+				return this._Doctor.Entity;
+			}
+			set
+			{
+				Doctor previousValue = this._Doctor.Entity;
+				if (((previousValue != value) 
+							|| (this._Doctor.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Doctor.Entity = null;
+						previousValue.DoctorRole.Remove(this);
+					}
+					this._Doctor.Entity = value;
+					if ((value != null))
+					{
+						value.DoctorRole.Add(this);
+						this._DoctorID = value.ID;
+					}
+					else
+					{
+						this._DoctorID = default(int);
+					}
+					this.SendPropertyChanged("Doctor");
 				}
 			}
 		}
@@ -1051,7 +734,7 @@ namespace VetClinic.Models
 		
 		private string _Text;
 		
-		private EntityRef<Doctor> _Doctor1;
+		private string _time;
 		
     #region Определения метода расширяемости
     partial void OnLoaded();
@@ -1069,11 +752,12 @@ namespace VetClinic.Models
     partial void OnTitleChanged();
     partial void OnTextChanging(string value);
     partial void OnTextChanged();
+    partial void OntimeChanging(string value);
+    partial void OntimeChanged();
     #endregion
 		
 		public Schedule()
 		{
-			this._Doctor1 = default(EntityRef<Doctor>);
 			OnCreated();
 		}
 		
@@ -1108,10 +792,6 @@ namespace VetClinic.Models
 			{
 				if ((this._Doctor != value))
 				{
-					if (this._Doctor1.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
 					this.OnDoctorChanging(value);
 					this.SendPropertyChanging();
 					this._Doctor = value;
@@ -1201,36 +881,573 @@ namespace VetClinic.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Doctor_Schedule", Storage="_Doctor1", ThisKey="Doctor", OtherKey="ID", IsForeignKey=true)]
-		public Doctor Doctor1
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_time", DbType="VarChar(5)")]
+		public string time
 		{
 			get
 			{
-				return this._Doctor1.Entity;
+				return this._time;
 			}
 			set
 			{
-				Doctor previousValue = this._Doctor1.Entity;
+				if ((this._time != value))
+				{
+					this.OntimeChanging(value);
+					this.SendPropertyChanging();
+					this._time = value;
+					this.SendPropertyChanged("time");
+					this.OntimeChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Client")]
+	public partial class Client : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ID;
+		
+		private string _Name;
+		
+		private string _Email;
+		
+		private string _Password;
+		
+		private EntitySet<Pet> _Pet;
+		
+    #region Определения метода расширяемости
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIDChanging(int value);
+    partial void OnIDChanged();
+    partial void OnNameChanging(string value);
+    partial void OnNameChanged();
+    partial void OnEmailChanging(string value);
+    partial void OnEmailChanged();
+    partial void OnPasswordChanging(string value);
+    partial void OnPasswordChanged();
+    #endregion
+		
+		public Client()
+		{
+			this._Pet = new EntitySet<Pet>(new Action<Pet>(this.attach_Pet), new Action<Pet>(this.detach_Pet));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this.OnIDChanging(value);
+					this.SendPropertyChanging();
+					this._ID = value;
+					this.SendPropertyChanged("ID");
+					this.OnIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Name
+		{
+			get
+			{
+				return this._Name;
+			}
+			set
+			{
+				if ((this._Name != value))
+				{
+					this.OnNameChanging(value);
+					this.SendPropertyChanging();
+					this._Name = value;
+					this.SendPropertyChanged("Name");
+					this.OnNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Email
+		{
+			get
+			{
+				return this._Email;
+			}
+			set
+			{
+				if ((this._Email != value))
+				{
+					this.OnEmailChanging(value);
+					this.SendPropertyChanging();
+					this._Email = value;
+					this.SendPropertyChanged("Email");
+					this.OnEmailChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Password", DbType="VarChar(50)")]
+		public string Password
+		{
+			get
+			{
+				return this._Password;
+			}
+			set
+			{
+				if ((this._Password != value))
+				{
+					this.OnPasswordChanging(value);
+					this.SendPropertyChanging();
+					this._Password = value;
+					this.SendPropertyChanged("Password");
+					this.OnPasswordChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Client_Pet", Storage="_Pet", ThisKey="ID", OtherKey="Master")]
+		public EntitySet<Pet> Pet
+		{
+			get
+			{
+				return this._Pet;
+			}
+			set
+			{
+				this._Pet.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Pet(Pet entity)
+		{
+			this.SendPropertyChanging();
+			entity.Client = this;
+		}
+		
+		private void detach_Pet(Pet entity)
+		{
+			this.SendPropertyChanging();
+			entity.Client = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Doctor")]
+	public partial class Doctor : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ID;
+		
+		private string _Name;
+		
+		private string _Email;
+		
+		private string _Password;
+		
+		private System.Nullable<bool> _ConfirmEmail;
+		
+		private EntitySet<DoctorRole> _DoctorRole;
+		
+		private EntitySet<Recall> _Recall;
+		
+    #region Определения метода расширяемости
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIDChanging(int value);
+    partial void OnIDChanged();
+    partial void OnNameChanging(string value);
+    partial void OnNameChanged();
+    partial void OnEmailChanging(string value);
+    partial void OnEmailChanged();
+    partial void OnPasswordChanging(string value);
+    partial void OnPasswordChanged();
+    partial void OnConfirmEmailChanging(System.Nullable<bool> value);
+    partial void OnConfirmEmailChanged();
+    #endregion
+		
+		public Doctor()
+		{
+			this._DoctorRole = new EntitySet<DoctorRole>(new Action<DoctorRole>(this.attach_DoctorRole), new Action<DoctorRole>(this.detach_DoctorRole));
+			this._Recall = new EntitySet<Recall>(new Action<Recall>(this.attach_Recall), new Action<Recall>(this.detach_Recall));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this.OnIDChanging(value);
+					this.SendPropertyChanging();
+					this._ID = value;
+					this.SendPropertyChanged("ID");
+					this.OnIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Name
+		{
+			get
+			{
+				return this._Name;
+			}
+			set
+			{
+				if ((this._Name != value))
+				{
+					this.OnNameChanging(value);
+					this.SendPropertyChanging();
+					this._Name = value;
+					this.SendPropertyChanged("Name");
+					this.OnNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Email
+		{
+			get
+			{
+				return this._Email;
+			}
+			set
+			{
+				if ((this._Email != value))
+				{
+					this.OnEmailChanging(value);
+					this.SendPropertyChanging();
+					this._Email = value;
+					this.SendPropertyChanged("Email");
+					this.OnEmailChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Password", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Password
+		{
+			get
+			{
+				return this._Password;
+			}
+			set
+			{
+				if ((this._Password != value))
+				{
+					this.OnPasswordChanging(value);
+					this.SendPropertyChanging();
+					this._Password = value;
+					this.SendPropertyChanged("Password");
+					this.OnPasswordChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ConfirmEmail", DbType="Bit")]
+		public System.Nullable<bool> ConfirmEmail
+		{
+			get
+			{
+				return this._ConfirmEmail;
+			}
+			set
+			{
+				if ((this._ConfirmEmail != value))
+				{
+					this.OnConfirmEmailChanging(value);
+					this.SendPropertyChanging();
+					this._ConfirmEmail = value;
+					this.SendPropertyChanged("ConfirmEmail");
+					this.OnConfirmEmailChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Doctor_DoctorRole", Storage="_DoctorRole", ThisKey="ID", OtherKey="DoctorID")]
+		public EntitySet<DoctorRole> DoctorRole
+		{
+			get
+			{
+				return this._DoctorRole;
+			}
+			set
+			{
+				this._DoctorRole.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Doctor_Recall", Storage="_Recall", ThisKey="ID", OtherKey="DoctorID")]
+		public EntitySet<Recall> Recall
+		{
+			get
+			{
+				return this._Recall;
+			}
+			set
+			{
+				this._Recall.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_DoctorRole(DoctorRole entity)
+		{
+			this.SendPropertyChanging();
+			entity.Doctor = this;
+		}
+		
+		private void detach_DoctorRole(DoctorRole entity)
+		{
+			this.SendPropertyChanging();
+			entity.Doctor = null;
+		}
+		
+		private void attach_Recall(Recall entity)
+		{
+			this.SendPropertyChanging();
+			entity.Doctor = this;
+		}
+		
+		private void detach_Recall(Recall entity)
+		{
+			this.SendPropertyChanging();
+			entity.Doctor = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Recall")]
+	public partial class Recall : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ID;
+		
+		private int _DoctorID;
+		
+		private string _Text;
+		
+		private System.DateTime _Date;
+		
+		private EntityRef<Doctor> _Doctor;
+		
+    #region Определения метода расширяемости
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIDChanging(int value);
+    partial void OnIDChanged();
+    partial void OnDoctorIDChanging(int value);
+    partial void OnDoctorIDChanged();
+    partial void OnTextChanging(string value);
+    partial void OnTextChanged();
+    partial void OnDateChanging(System.DateTime value);
+    partial void OnDateChanged();
+    #endregion
+		
+		public Recall()
+		{
+			this._Doctor = default(EntityRef<Doctor>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this.OnIDChanging(value);
+					this.SendPropertyChanging();
+					this._ID = value;
+					this.SendPropertyChanged("ID");
+					this.OnIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DoctorID", DbType="Int NOT NULL")]
+		public int DoctorID
+		{
+			get
+			{
+				return this._DoctorID;
+			}
+			set
+			{
+				if ((this._DoctorID != value))
+				{
+					if (this._Doctor.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnDoctorIDChanging(value);
+					this.SendPropertyChanging();
+					this._DoctorID = value;
+					this.SendPropertyChanged("DoctorID");
+					this.OnDoctorIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Text", DbType="VarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string Text
+		{
+			get
+			{
+				return this._Text;
+			}
+			set
+			{
+				if ((this._Text != value))
+				{
+					this.OnTextChanging(value);
+					this.SendPropertyChanging();
+					this._Text = value;
+					this.SendPropertyChanged("Text");
+					this.OnTextChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Date", DbType="Date NOT NULL")]
+		public System.DateTime Date
+		{
+			get
+			{
+				return this._Date;
+			}
+			set
+			{
+				if ((this._Date != value))
+				{
+					this.OnDateChanging(value);
+					this.SendPropertyChanging();
+					this._Date = value;
+					this.SendPropertyChanged("Date");
+					this.OnDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Doctor_Recall", Storage="_Doctor", ThisKey="DoctorID", OtherKey="ID", IsForeignKey=true)]
+		public Doctor Doctor
+		{
+			get
+			{
+				return this._Doctor.Entity;
+			}
+			set
+			{
+				Doctor previousValue = this._Doctor.Entity;
 				if (((previousValue != value) 
-							|| (this._Doctor1.HasLoadedOrAssignedValue == false)))
+							|| (this._Doctor.HasLoadedOrAssignedValue == false)))
 				{
 					this.SendPropertyChanging();
 					if ((previousValue != null))
 					{
-						this._Doctor1.Entity = null;
-						previousValue.Schedule.Remove(this);
+						this._Doctor.Entity = null;
+						previousValue.Recall.Remove(this);
 					}
-					this._Doctor1.Entity = value;
+					this._Doctor.Entity = value;
 					if ((value != null))
 					{
-						value.Schedule.Add(this);
-						this._Doctor = value.ID;
+						value.Recall.Add(this);
+						this._DoctorID = value.ID;
 					}
 					else
 					{
-						this._Doctor = default(int);
+						this._DoctorID = default(int);
 					}
-					this.SendPropertyChanged("Doctor1");
+					this.SendPropertyChanged("Doctor");
 				}
 			}
 		}

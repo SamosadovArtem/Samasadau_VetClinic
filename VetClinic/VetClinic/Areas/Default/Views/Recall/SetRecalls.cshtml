@@ -1,0 +1,38 @@
+﻿@model VetClinic.Models.ViewModels.RecallView
+
+@{
+    ViewBag.Title = "SetRecalls";
+    Layout = "~/Areas/Default/Views/Shared/_Layout.cshtml";
+}
+<h2>Оставить отзыв о @ViewBag.DoctorName</h2>
+@using (Html.BeginForm("SetRecalls", "Recall", FormMethod.Post, new
+{
+    @class = "formhorizontal"
+}))
+{
+
+    <blockquote>
+        <fieldset>
+            <div class="control-group">
+                <label class="control-label" for="Name">
+                    Отзыв
+                </label>
+                <div class="controls">
+                    @Html.TextBox("Text", Model.Text, new { @class = "form-control" })
+                </div>
+            </div>
+
+
+            @Html.HiddenFor(m=>Model.DoctorID)
+            @Html.HiddenFor(m => Model.Date)
+
+
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary">
+                    Добавить
+                </button>
+                </div>
+
+        </fieldset>
+    </blockquote>
+}

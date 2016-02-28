@@ -1,0 +1,21 @@
+﻿@model List<VetClinic.Models.Doctor>
+
+@{
+    ViewBag.Title = "ChooseDoctor";
+    Layout = "~/Areas/Default/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Доктора</h2>
+
+<form action="/Recall/ChooseDoctor" method="Post">
+    <fieldset>
+        <select id="doctorID" name="doctorID">
+            @for (int i = 0; i < Model.Count; i++)
+            {
+                <option value=@Model[i].ID>@Model[i].Name</option>
+            }
+        </select>
+        <button type="submit" name="action" value="Watch">Посмотреть отзывы</button>
+        <button type="submit" name="action" value="Add">Оставить отзыв</button>
+    </fieldset>
+</form>

@@ -1,0 +1,21 @@
+﻿@model List<VetClinic.Models.Recall>
+
+@{
+    ViewBag.Title = "GetRecalls";
+    Layout = "~/Areas/Default/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Отзывы о @ViewBag.DoctorName</h2>
+
+@{
+    foreach (VetClinic.Models.Recall recall in Model)
+    {
+        WriteLiteral("<pre>");
+        @recall.Text
+        WriteLiteral("<br>");
+        @recall.Date.ToShortDateString();
+        WriteLiteral("</pre>");
+        WriteLiteral("<br>");
+    }
+
+}

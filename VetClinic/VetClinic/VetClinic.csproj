@@ -40,6 +40,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ActionMailer.Net, Version=0.7.4.0, Culture=neutral, PublicKeyToken=e62db3114c02a1c2, processorArchitecture=MSIL">
+      <HintPath>..\packages\ActionMailer.0.7.4\lib\Net40\ActionMailer.Net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ActionMailer.Net.Mvc, Version=0.7.4.0, Culture=neutral, PublicKeyToken=e62db3114c02a1c2, processorArchitecture=MSIL">
+      <HintPath>..\packages\ActionMailer.0.7.4\lib\Net40\ActionMailer.Net.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="AutoMapper">
       <HintPath>..\packages\AutoMapper.4.1.1\lib\net45\AutoMapper.dll</HintPath>
     </Reference>
@@ -140,6 +148,7 @@
     <Compile Include="Areas\Default\Controllers\EntryController.cs" />
     <Compile Include="Areas\Default\Controllers\ErrorController.cs" />
     <Compile Include="Areas\Default\Controllers\LoginController.cs" />
+    <Compile Include="Areas\Default\Controllers\RecallController.cs" />
     <Compile Include="Areas\Default\Controllers\SuccessController.cs" />
     <Compile Include="Areas\Default\DefaultAreaRegistration.cs" />
     <Compile Include="Controllers\BaseController.cs" />
@@ -156,9 +165,11 @@
     <Compile Include="Infrastructure\Auth\IProvider.cs" />
     <Compile Include="Infrastructure\DateWork.cs" />
     <Compile Include="Infrastructure\DayInfo.cs" />
+    <Compile Include="Infrastructure\Mail\MailSandler.cs" />
     <Compile Include="Infrastructure\Validation\EmailValidation.cs" />
     <Compile Include="Mappers\DoctorMapper.cs" />
     <Compile Include="Mappers\IMapper.cs" />
+    <Compile Include="Models\EntryTime.cs" />
     <Compile Include="Models\IRepository.cs" />
     <Compile Include="Models\Day.cs" />
     <Compile Include="Models\Month.cs" />
@@ -177,6 +188,7 @@
     <Compile Include="Models\ViewModels\DoctorView.cs" />
     <Compile Include="Models\ViewModels\LoginView.cs" />
     <Compile Include="Models\ViewModels\PetView.cs" />
+    <Compile Include="Models\ViewModels\RecallView.cs" />
     <Compile Include="Models\ViewModels\ScheduleView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -217,6 +229,10 @@
     <Content Include="Areas\Default\Views\Card\Index.cshtml" />
     <Content Include="Areas\Default\Views\Entry\Index.cshtml" />
     <Content Include="Areas\Default\Views\Success\Index.cshtml" />
+    <Content Include="Areas\Default\Views\Doctor\ConfirmEmail.cshtml" />
+    <Content Include="Areas\Default\Views\Recall\ChooseDoctor.cshtml" />
+    <Content Include="Areas\Default\Views\Recall\GetRecalls.cshtml" />
+    <Content Include="Areas\Default\Views\Recall\SetRecalls.cshtml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />

@@ -8,6 +8,7 @@
 <body>
     <h2>Index</h2>
     @{
+        List<VetClinic.Models.Pet> currentPets = new List<VetClinic.Models.Pet>();
 
         bool isHaveTaskForCurrentDoctor = false;
         foreach (VetClinic.Models.Day day in Model.days)
@@ -28,11 +29,12 @@
             }
             else { isHaveTaskForCurrentDoctor = false; }
 
+
             if (isHaveTaskForCurrentDoctor)
             {
                 <form action="/Detail/Index" method="Post">
                     <fieldset>
-                        Просмотреть карточку питомца <select id="userPetID" name="userPetID">
+                         <select id="userPetID" name="userPetID">
                             @for (int i = 0; i < day.taskList.Count; i++)
                     {
                                 <option value=@day.taskList[i].petID>@day.taskList[i].petName</option>

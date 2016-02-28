@@ -8,31 +8,13 @@
       <Association Name="Pet_Card" Member="Pet1" ThisKey="Pet" OtherKey="ID" Type="Pet" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.Client" Member="Client">
-    <Type Name="Client">
-      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Email" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Association Name="Client_Pet" Member="Pet" ThisKey="ID" OtherKey="Master" Type="Pet" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Doctor" Member="Doctor">
-    <Type Name="Doctor">
-      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Email" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Password" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Association Name="Doctor_DoctorRole" Member="DoctorRole" ThisKey="ID" OtherKey="DoctorID" Type="DoctorRole" />
-      <Association Name="Doctor_Schedule" Member="Schedule" ThisKey="ID" OtherKey="Doctor" Type="Schedule" />
-    </Type>
-  </Table>
   <Table Name="dbo.DoctorRole" Member="DoctorRole">
     <Type Name="DoctorRole">
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="DoctorID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="RoleID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Association Name="Doctor_DoctorRole" Member="Doctor" ThisKey="DoctorID" OtherKey="ID" Type="Doctor" IsForeignKey="true" />
       <Association Name="Role_DoctorRole" Member="Role" ThisKey="RoleID" OtherKey="ID" Type="Role" IsForeignKey="true" />
+      <Association Name="Doctor_DoctorRole" Member="Doctor" ThisKey="DoctorID" OtherKey="ID" Type="Doctor" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Pet" Member="Pet">
@@ -61,7 +43,36 @@
       <Column Name="Date" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
       <Column Name="Title" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="Text" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
-      <Association Name="Doctor_Schedule" Member="Doctor1" ThisKey="Doctor" OtherKey="ID" Type="Doctor" IsForeignKey="true" />
+      <Column Name="time" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Client" Member="Client">
+    <Type Name="Client">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="Client_Pet" Member="Pet" ThisKey="ID" OtherKey="Master" Type="Pet" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Doctor" Member="Doctor">
+    <Type Name="Doctor">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ConfirmEmail" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="Doctor_DoctorRole" Member="DoctorRole" ThisKey="ID" OtherKey="DoctorID" Type="DoctorRole" />
+      <Association Name="Doctor_Recall" Member="Recall" ThisKey="ID" OtherKey="DoctorID" Type="Recall" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Recall" Member="Recall">
+    <Type Name="Recall">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DoctorID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Text" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="Date" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Association Name="Doctor_Recall" Member="Doctor" ThisKey="DoctorID" OtherKey="ID" Type="Doctor" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

@@ -14,11 +14,11 @@ namespace VetClinic.Areas.Default
 
         public override void RegisterArea(AreaRegistrationContext context)
         {
-            context.MapRoute(
-                name: "Doctor",
-                url: "registration/{action}/{id}",
-                defaults: new { controller = "Doctor", action = "Register", id = UrlParameter.Optional }
-                );
+            //context.MapRoute(
+            //    name: "Doctor",
+            //    url: "registration/{action}/{id}",
+            //    defaults: new { controller = "Doctor", action = "Register", id = UrlParameter.Optional }
+            //    );
 
             context.MapRoute(
                 name: "default",

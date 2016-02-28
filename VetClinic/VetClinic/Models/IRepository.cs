@@ -20,7 +20,10 @@ namespace VetClinic.Models
         IQueryable<Card> GetCardByPetID(int petID);
         //bool Update();
         //bool Delete();
-
+        IQueryable<Client> GetClientByID(int ID);
+        Doctor GetDoctorByID(int ID);
+        IQueryable<Recall> GetRecallsByDoctorID(int ID);
+        bool AddRecall(Recall instance);
 
 
         //--------------------

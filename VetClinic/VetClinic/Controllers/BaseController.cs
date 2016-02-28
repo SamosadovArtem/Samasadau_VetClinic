@@ -7,6 +7,7 @@ using Ninject;
 using VetClinic.Infrastructure.Auth;
 using VetClinic.Mappers;
 using VetClinic.Models;
+using VetClinic.Infrastructure.Mail;
 
 namespace VetClinic.Controllers
 {
@@ -24,8 +25,11 @@ namespace VetClinic.Controllers
         [Inject]
         protected IAuthentication _auth;
 
+
+        protected MailSandler _mail;
         public BaseController()
         {
+            _mail = new MailSandler();
             _repository = DependencyResolver.Current.GetService<IRepository>();
            _mapper = DependencyResolver.Current.GetService<IMapper>();
            _auth = DependencyResolver.Current.GetService<IAuthentication>();

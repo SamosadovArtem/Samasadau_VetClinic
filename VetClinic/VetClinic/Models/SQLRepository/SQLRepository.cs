@@ -92,5 +92,34 @@ namespace VetClinic.Models.SQLRepository
                     where c.Pet == petID
                     select c);
         }
+
+        public IQueryable<Client> GetClientByID(int ID)
+        {
+            return (from c in dataBase.Client
+                    where c.ID == ID
+                    select c);
+        }
+
+        public Doctor GetDoctorByID(int ID)
+        {
+            Doctor currentDoctor = (from d in dataBase.Doctor
+                              where d.ID == ID
+                              select d).Single<Doctor>();
+            return currentDoctor;
+        }
+
+        public IQueryable<Recall> GetRecallsByDoctorID(int ID)
+        {
+            return (from r in dataBase.Recall
+                    where r.DoctorID == ID
+                    select r);
+        }
+
+        public bool AddRecall(Recall instance)
+        {
+            dataBase.Recall.InsertOnSubmit(instance);
+            dataBase.Recall.Context.SubmitChanges();
+            return true;
+        }
     }
 }

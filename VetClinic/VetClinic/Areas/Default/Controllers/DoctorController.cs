@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using VetClinic.Controllers;
+using VetClinic.Infrastructure.Mail;
 using VetClinic.Models;
 using VetClinic.Models.ViewModels;
 
@@ -28,14 +30,14 @@ namespace VetClinic.Areas.Default.Controllers
         [HttpGet]
         public ActionResult Register()
         {
-            DoctorView doctor = new DoctorView();
-            return View(doctor);
+            DoctorView newDoctor = new DoctorView();
+            return View(newDoctor);
         }
 
         [HttpPost]
-        public ActionResult Register(DoctorView doctor)
+        public ActionResult Register(DoctorView newDoctor)
         {
-            bool anyUser = _repository.GetDoctors().Any(p => string.Compare(p.Email, doctor.Email) == 0);
+            bool anyUser = _repository.GetDoctors().Any(p => string.Compare(p.Email, newDoctor.Email) == 0);
             if (anyUser)
             {
                 ModelState.AddModelError("Email", "Пользователь с таким email уже зарегистрирован");
@@ -43,17 +45,46 @@ namespace VetClinic.Areas.Default.Controllers
 
             if (ModelState.IsValid)
             {
-                var currentDoctor =(Doctor)_mapper.Map(doctor, typeof(DoctorView),typeof(Doctor));
+                var currentDoctor =(Doctor)_mapper.Map(newDoctor, typeof(DoctorView),typeof(Doctor));
                 //TODO : Save
-                this.SaveDoctor(currentDoctor);
-                
+                this.SaveClient(currentDoctor);
+                MailSandler mail = new MailSandler();
+                //mail.SendEmail(string.Format("Для завершения регистрации перейдите по ссылке: " +
+                //            "<a href=\"{0}\">Подтверждение</a>",
+                //Url.Action("ConfirmEmail", "Doctor", new { Doctor = newDoctor })));
+                return RedirectToAction("Confirm", "Doctor", new { doctorID = currentDoctor.ID});
 
-            }
+            }
 
-            return View(doctor);
+
+            return View(newDoctor);
         }
 
-        private void SaveDoctor(VetClinic.Models.Doctor newDoctor)
+        public string Confirm(int doctorID)
+        {
+            //return "Выслано письмо";
+            Doctor dc = _repository.GetDoctorByID(doctorID);
+            return Url.Action("ConfirmEmail", "Doctor", new { dc.ID });
+        }
+
+        public ActionResult ConfirmEmail()//int doctorID
+        {
+
+            //Doctor user =  newDoctor;
+            //if (doctorID != null)
+            {
+                Doctor currentDoctor = _repository.GetDoctorByID(1010);//doctorID
+                currentDoctor.ConfirmEmail = true;
+                return RedirectToAction("Index", "Home");
+            }
+           // else
+            {
+                return RedirectToAction("Confirm", "Doctor");
+            }
+
+        }
+
+        private void SaveClient(Doctor newDoctor)
         {
             _repository.AddDoctor(newDoctor);
         }

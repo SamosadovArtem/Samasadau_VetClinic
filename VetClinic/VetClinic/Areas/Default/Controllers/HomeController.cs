@@ -7,6 +7,8 @@ using Ninject;
 using VetClinic.Controllers;
 using VetClinic.Models;
 using VetClinic.Infrastructure;
+using System.Net.Mail;
+using System.Net;
 
 namespace VetClinic.Areas.Default.Controllers
 {
@@ -24,6 +26,9 @@ namespace VetClinic.Areas.Default.Controllers
         }
         public ActionResult Index()
         {
+            
+            
+
 
             var doctors = _repository.GetDoctors().ToList();
             DateWork monthInfo = new DateWork();
@@ -54,6 +59,7 @@ namespace VetClinic.Areas.Default.Controllers
         {
             return View(CurrentUser);
         }
+
 
     }
 }
