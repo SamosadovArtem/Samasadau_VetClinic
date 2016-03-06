@@ -1,13 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="VetClinicDB" Class="VetDBDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="WebSettings" ConnectionString="Data Source=NovaPC\SQLEXPRESS;Initial Catalog=VetClinicDB;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="VetClinicDBConnectionString" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.Card" Member="Card">
-    <Type Name="Card">
-      <Column Name="Pet" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Disease" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Date" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-      <Association Name="Pet_Card" Member="Pet1" ThisKey="Pet" OtherKey="ID" Type="Pet" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.DoctorRole" Member="DoctorRole">
     <Type Name="DoctorRole">
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -73,6 +65,15 @@
       <Column Name="Text" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
       <Column Name="Date" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
       <Association Name="Doctor_Recall" Member="Doctor" ThisKey="DoctorID" OtherKey="ID" Type="Doctor" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Card" Member="Card">
+    <Type Name="Card">
+      <Column Name="Pet" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Disease" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Date" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Association Name="Pet_Card" Member="Pet1" ThisKey="Pet" OtherKey="ID" Type="Pet" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

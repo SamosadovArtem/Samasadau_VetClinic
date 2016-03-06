@@ -1,0 +1,30 @@
+﻿@model VetClinic.Models.Schedule
+
+@{
+    ViewBag.Title = "AddNewEntry";
+    Layout = "~/Areas/Default/Views/Shared/_Layout.cshtml";
+}
+
+<div class="hero-unit">
+    <h1> Причина привода</br>
+        @Model.Title
+    </h1>
+
+    <p>
+        Подробности </br>
+        @Model.Text
+    </p>
+
+
+    
+    
+
+    <form action="/Card/AddNewEntry" method="Post">
+        <div class="form-group">
+            <input type="hidden" value="@Model.ID" name="scheduleID" />
+            <textarea type="text" id="cardText" name="cardText" class="form-control"></textarea>
+            <button type="submit" name="action">Записать в карточку</button>
+            </div>
+</form>
+
+</div>

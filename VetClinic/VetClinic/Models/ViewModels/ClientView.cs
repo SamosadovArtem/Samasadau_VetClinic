@@ -14,10 +14,5 @@ namespace VetClinic.Models.ViewModels
         [EmailValidation(ErrorMessage = "Введите корректный Email")]
         public string Email { get; set; }
 
-        [Required(ErrorMessage = "Введите пароль")]
-        public string Password { get; set; }
-
-        [Compare("Password", ErrorMessage = "Пароли должны совпадать")]
-        public string ConfirmPassword { get; set; }
     }
 }

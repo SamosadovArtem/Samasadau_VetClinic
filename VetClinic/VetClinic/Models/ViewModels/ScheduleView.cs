@@ -8,6 +8,7 @@ namespace VetClinic.Models.ViewModels
 {
     public class ScheduleView
     {
+        public int ID { get; set; }
         public int Doctor { get; set; }
         public int Pet { get; set; }
         public DateTime date { get; set; }
@@ -19,5 +20,7 @@ namespace VetClinic.Models.ViewModels
         public string Text { get; set; }
         public List<Doctor> DoctorList { get; set; }
         public List<Pet> PetList { get; set; }
+
+        public string PetName { get; set; }
     }
 }

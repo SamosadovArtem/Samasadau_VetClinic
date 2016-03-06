@@ -173,5 +173,32 @@ namespace VetClinic.Models.SQLRepository
                     select p);
         }
 
+        public Pet GetPetByID(int ID)
+        {
+            return (from p in dataBase.Pet
+                    where p.ID == ID
+                    select p).Single();
+        }
+
+        public Schedule GetScheduleByID(int scheduleID)
+        {
+            return (from s in dataBase.Schedule
+                    where s.ID == scheduleID
+                    select s).Single();
+        }
+
+        public bool AddCard(Card instance)
+        {
+            dataBase.Card.InsertOnSubmit(instance);
+            dataBase.Card.Context.SubmitChanges();
+            return true;
+        }
+
+        public bool DeleteSchedule(Schedule instance)
+        {
+            dataBase.Schedule.DeleteOnSubmit(instance);
+            dataBase.SubmitChanges();
+            return true;
+        }
     }
 }

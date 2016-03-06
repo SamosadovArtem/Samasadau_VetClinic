@@ -28,6 +28,10 @@ namespace VetClinic.Models
         Client GetClientByName(string name);
         IQueryable<Pet> GetPetnByName(string name);
         IQueryable<Pet> GetPetnByKind(string kind);
+        Pet GetPetByID(int ID);
+        Schedule GetScheduleByID(int scheduleID);
+        bool AddCard(Card instance);
+        bool DeleteSchedule(Schedule instance);
 
 
         //--------------------

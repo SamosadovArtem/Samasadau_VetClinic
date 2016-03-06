@@ -11,9 +11,11 @@
 </head>
 <body>
     <div>
-        <h2>Оформление прошло успешно</h2>
-        @Html.ActionLink("Вернуться на главную страницу", "Index", new { area = "Default", controller = "Home" })
-        @Html.ActionLink("Вернуться к администрированию", "Index","Home")
-    </div>
+        <div class="alert alert-success">
+            <h2>Оформление прошло успешно</h2>
+            </div>
+            @Html.ActionLink("Вернуться на главную страницу", "Index", new { area = "Default", controller = "Home" })
+            @Html.ActionLink("Вернуться к администрированию", "Index", "Home")
+        </div>
 </body>
 </html>

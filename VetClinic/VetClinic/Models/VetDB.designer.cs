@@ -51,6 +51,9 @@ namespace VetClinic.Models
     partial void InsertRecall(Recall instance);
     partial void UpdateRecall(Recall instance);
     partial void DeleteRecall(Recall instance);
+    partial void InsertCard(Card instance);
+    partial void UpdateCard(Card instance);
+    partial void DeleteCard(Card instance);
     #endregion
 		
 		public VetDBDataContext() : 
@@ -81,14 +84,6 @@ namespace VetClinic.Models
 				base(connection, mappingSource)
 		{
 			OnCreated();
-		}
-		
-		public System.Data.Linq.Table<Card> Card
-		{
-			get
-			{
-				return this.GetTable<Card>();
-			}
 		}
 		
 		public System.Data.Linq.Table<DoctorRole> DoctorRole
@@ -146,67 +141,12 @@ namespace VetClinic.Models
 				return this.GetTable<Recall>();
 			}
 		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Card")]
-	public partial class Card
-	{
 		
-		private int _Pet;
-		
-		private string _Disease;
-		
-		private System.DateTime _Date;
-		
-		public Card()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Pet", DbType="Int NOT NULL")]
-		public int Pet
+		public System.Data.Linq.Table<Card> Card
 		{
 			get
 			{
-				return this._Pet;
-			}
-			set
-			{
-				if ((this._Pet != value))
-				{
-					this._Pet = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Disease", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string Disease
-		{
-			get
-			{
-				return this._Disease;
-			}
-			set
-			{
-				if ((this._Disease != value))
-				{
-					this._Disease = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Date", DbType="Date NOT NULL")]
-		public System.DateTime Date
-		{
-			get
-			{
-				return this._Date;
-			}
-			set
-			{
-				if ((this._Date != value))
-				{
-					this._Date = value;
-				}
+				return this.GetTable<Card>();
 			}
 		}
 	}
@@ -417,6 +357,8 @@ namespace VetClinic.Models
 		
 		private string _Kind;
 		
+		private EntitySet<Card> _Card;
+		
 		private EntityRef<Client> _Client;
 		
     #region Определения метода расширяемости
@@ -435,6 +377,7 @@ namespace VetClinic.Models
 		
 		public Pet()
 		{
+			this._Card = new EntitySet<Card>(new Action<Card>(this.attach_Card), new Action<Card>(this.detach_Card));
 			this._Client = default(EntityRef<Client>);
 			OnCreated();
 		}
@@ -523,6 +466,19 @@ namespace VetClinic.Models
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Pet_Card", Storage="_Card", ThisKey="ID", OtherKey="Pet")]
+		public EntitySet<Card> Card
+		{
+			get
+			{
+				return this._Card;
+			}
+			set
+			{
+				this._Card.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Client_Pet", Storage="_Client", ThisKey="Master", OtherKey="ID", IsForeignKey=true)]
 		public Client Client
 		{
@@ -575,6 +531,18 @@ namespace VetClinic.Models
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+		
+		private void attach_Card(Card entity)
+		{
+			this.SendPropertyChanging();
+			entity.Pet1 = this;
+		}
+		
+		private void detach_Card(Card entity)
+		{
+			this.SendPropertyChanging();
+			entity.Pet1 = null;
 		}
 	}
 	
@@ -1448,6 +1416,181 @@ namespace VetClinic.Models
 						this._DoctorID = default(int);
 					}
 					this.SendPropertyChanged("Doctor");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Card")]
+	public partial class Card : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Pet;
+		
+		private string _Disease;
+		
+		private System.DateTime _Date;
+		
+		private int _ID;
+		
+		private EntityRef<Pet> _Pet1;
+		
+    #region Определения метода расширяемости
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnPetChanging(int value);
+    partial void OnPetChanged();
+    partial void OnDiseaseChanging(string value);
+    partial void OnDiseaseChanged();
+    partial void OnDateChanging(System.DateTime value);
+    partial void OnDateChanged();
+    partial void OnIDChanging(int value);
+    partial void OnIDChanged();
+    #endregion
+		
+		public Card()
+		{
+			this._Pet1 = default(EntityRef<Pet>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Pet", DbType="Int NOT NULL")]
+		public int Pet
+		{
+			get
+			{
+				return this._Pet;
+			}
+			set
+			{
+				if ((this._Pet != value))
+				{
+					if (this._Pet1.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnPetChanging(value);
+					this.SendPropertyChanging();
+					this._Pet = value;
+					this.SendPropertyChanged("Pet");
+					this.OnPetChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Disease", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Disease
+		{
+			get
+			{
+				return this._Disease;
+			}
+			set
+			{
+				if ((this._Disease != value))
+				{
+					this.OnDiseaseChanging(value);
+					this.SendPropertyChanging();
+					this._Disease = value;
+					this.SendPropertyChanged("Disease");
+					this.OnDiseaseChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Date", DbType="Date NOT NULL")]
+		public System.DateTime Date
+		{
+			get
+			{
+				return this._Date;
+			}
+			set
+			{
+				if ((this._Date != value))
+				{
+					this.OnDateChanging(value);
+					this.SendPropertyChanging();
+					this._Date = value;
+					this.SendPropertyChanged("Date");
+					this.OnDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this.OnIDChanging(value);
+					this.SendPropertyChanging();
+					this._ID = value;
+					this.SendPropertyChanged("ID");
+					this.OnIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Pet_Card", Storage="_Pet1", ThisKey="Pet", OtherKey="ID", IsForeignKey=true)]
+		public Pet Pet1
+		{
+			get
+			{
+				return this._Pet1.Entity;
+			}
+			set
+			{
+				Pet previousValue = this._Pet1.Entity;
+				if (((previousValue != value) 
+							|| (this._Pet1.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Pet1.Entity = null;
+						previousValue.Card.Remove(this);
+					}
+					this._Pet1.Entity = value;
+					if ((value != null))
+					{
+						value.Card.Add(this);
+						this._Pet = value.ID;
+					}
+					else
+					{
+						this._Pet = default(int);
+					}
+					this.SendPropertyChanged("Pet1");
 				}
 			}
 		}

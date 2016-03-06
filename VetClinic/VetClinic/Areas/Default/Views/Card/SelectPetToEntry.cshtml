@@ -1,0 +1,50 @@
+﻿@model IEnumerable<VetClinic.Models.ViewModels.ScheduleView>
+
+@{
+    ViewBag.Title = "AddEntryToCard";
+    Layout = "~/Areas/Default/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Добавить запись в карточку</h2>
+<h3>Список питомцев, прошедших прием</h3>
+
+
+<div class="table-striped">
+    <table class="table">
+        <tr>
+
+            <th>
+                Дата приема
+            </th>
+            <th>
+                Причина приема
+            </th>
+
+            <th>
+                Имя питомца
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>
+                    @item.date.ToShortDateString()
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.PetName)
+                </td>
+                <td>
+                    @Html.ActionLink("Добавить запись в карточку", "AddNewEntry", new { scheduleID = item.ID }) 
+                </td>
+            </tr>
+        }
+
+    </table>
+    </div>

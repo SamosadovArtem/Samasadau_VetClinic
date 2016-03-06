@@ -235,6 +235,8 @@
     <Content Include="Areas\Default\Views\Recall\GetRecalls.cshtml" />
     <Content Include="Areas\Default\Views\Recall\SetRecalls.cshtml" />
     <Content Include="Areas\Admin\Views\Search\GetPets.cshtml" />
+    <Content Include="Areas\Default\Views\Card\SelectPetToEntry.cshtml" />
+    <Content Include="Areas\Default\Views\Card\AddNewEntry.cshtml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />

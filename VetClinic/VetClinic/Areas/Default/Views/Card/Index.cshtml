@@ -13,7 +13,7 @@
         WriteLiteral("<pre>");
         @card.Disease 
         WriteLiteral("<br>");
-         @card.Date
+         @card.Date.ToShortDateString();
         WriteLiteral("</pre>");
         WriteLiteral("<br>");
     }
