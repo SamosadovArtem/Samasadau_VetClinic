@@ -24,6 +24,10 @@ namespace VetClinic.Models
         Doctor GetDoctorByID(int ID);
         IQueryable<Recall> GetRecallsByDoctorID(int ID);
         bool AddRecall(Recall instance);
+        IQueryable<Pet> GetPetByMasterName(string name);
+        Client GetClientByName(string name);
+        IQueryable<Pet> GetPetnByName(string name);
+        IQueryable<Pet> GetPetnByKind(string kind);
 
 
         //--------------------

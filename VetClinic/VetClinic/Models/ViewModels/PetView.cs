@@ -19,5 +19,8 @@ namespace VetClinic.Models.ViewModels
         public string kind { get; set; }
         public List<Client> mastersList { get; set; }
 
+
+        public string masterName { get; set; }
+
     }
 }

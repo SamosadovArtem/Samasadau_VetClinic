@@ -142,6 +142,7 @@
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\PetController.cs" />
     <Compile Include="Areas\Admin\Controllers\ScheduleController.cs" />
+    <Compile Include="Areas\Admin\Controllers\SearchController.cs" />
     <Compile Include="Areas\Admin\Controllers\SuccessController.cs" />
     <Compile Include="Areas\Default\Controllers\CardController.cs" />
     <Compile Include="Areas\Default\Controllers\DetailController.cs" />
@@ -233,6 +234,7 @@
     <Content Include="Areas\Default\Views\Recall\ChooseDoctor.cshtml" />
     <Content Include="Areas\Default\Views\Recall\GetRecalls.cshtml" />
     <Content Include="Areas\Default\Views\Recall\SetRecalls.cshtml" />
+    <Content Include="Areas\Admin\Views\Search\GetPets.cshtml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />

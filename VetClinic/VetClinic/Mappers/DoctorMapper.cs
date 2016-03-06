@@ -17,6 +17,7 @@ namespace VetClinic.Mappers
             Mapper.CreateMap<Client, ClientView>();
             Mapper.CreateMap<ClientView, Client>();
             Mapper.CreateMap<PetView, Pet>();
+            Mapper.CreateMap<Pet, PetView>();
             Mapper.CreateMap<ScheduleView, Schedule>();
             Mapper.CreateMap<RecallView, Recall>();
         }

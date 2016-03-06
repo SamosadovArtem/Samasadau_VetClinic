@@ -1,0 +1,62 @@
+﻿@model List<VetClinic.Models.ViewModels.PetView>
+
+@{
+    ViewBag.Title = "GetPets";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+@using (Html.BeginForm("GetPets", "Search", FormMethod.Post, new
+{
+    @class = "formhorizontal"
+}))
+{
+    <fieldset>
+        <select id="searchAttribute" name="searchAttribute">
+
+            <option value="master">Хозяин</option>
+            <option value="kind">Вид</option>
+            <option value="name">Имя</option>
+        </select>
+        @Html.ValidationMessage("searchValue") <br />
+        <input type="text" name="searchValue"  />
+        
+        <button type="submit" name="action" class="btn-info">Искать</button>
+    </fieldset>
+
+}
+<div class="table-striped">
+    <table class="table">
+        <tr>
+            <th>
+                Имя питомца
+            </th>
+            <th>
+                Хозяин питомца
+            </th>
+            <th>
+                Вид питомца
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.masterName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.kind)
+                </td>
+                <td>
+                    @Html.ActionLink("Карточка", "Index", new { area = "Default", controller = "Card", petID = item.ID })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

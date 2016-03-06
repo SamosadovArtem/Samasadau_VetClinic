@@ -121,5 +121,57 @@ namespace VetClinic.Models.SQLRepository
             dataBase.Recall.Context.SubmitChanges();
             return true;
         }
+
+
+        public IQueryable<Pet> GetPetByMasterName(string name)
+        {
+            Client currentClient = GetClientByName(name);
+            //Client currentClient;
+            //try
+            //{
+            //    currentClient = GetClientByName(name).ToList()[0];
+            //}
+            //catch (ArgumentOutOfRangeException)
+            //{
+            //    return null ;
+            //}
+            
+                return (from p in dataBase.Pet
+                        where p.Master == currentClient.ID
+                        select p);
+        }
+
+        public Client GetClientByName(string name)
+        {
+            try
+            {
+                return (from c in dataBase.Client
+                        where c.Name == name
+                        select c).Single();
+            }
+            catch (InvalidOperationException)
+            {
+
+                return new Client();
+            }
+
+          
+        
+        }
+
+        public IQueryable<Pet> GetPetnByName(string name)
+        {
+            return (from p in dataBase.Pet
+                    where p.Name == name
+                    select p);
+        }
+
+        public IQueryable<Pet> GetPetnByKind(string kind)
+        {
+            return (from p in dataBase.Pet
+                    where p.Kind == kind
+                    select p);
+        }
+
     }
 }
