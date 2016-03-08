@@ -32,12 +32,16 @@ namespace VetClinic.Models
         Schedule GetScheduleByID(int scheduleID);
         bool AddCard(Card instance);
         bool DeleteSchedule(Schedule instance);
+        bool IsTimeFree(DateTime date, string time);
+        bool IsPetMakeAnAppOnCurrentDate(DateTime date, int petID);
 
 
         //--------------------
 
         Doctor Login(string email, string password);
         Doctor GetUser(string email);
+        bool DoctorConfirmEmail(int doctorID);
+        bool DeleteDoctor(int doctorID);
 
         //--------------------
 

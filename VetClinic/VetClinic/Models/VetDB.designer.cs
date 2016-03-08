@@ -39,9 +39,6 @@ namespace VetClinic.Models
     partial void InsertRole(Role instance);
     partial void UpdateRole(Role instance);
     partial void DeleteRole(Role instance);
-    partial void InsertSchedule(Schedule instance);
-    partial void UpdateSchedule(Schedule instance);
-    partial void DeleteSchedule(Schedule instance);
     partial void InsertClient(Client instance);
     partial void UpdateClient(Client instance);
     partial void DeleteClient(Client instance);
@@ -54,6 +51,9 @@ namespace VetClinic.Models
     partial void InsertCard(Card instance);
     partial void UpdateCard(Card instance);
     partial void DeleteCard(Card instance);
+    partial void InsertSchedule(Schedule instance);
+    partial void UpdateSchedule(Schedule instance);
+    partial void DeleteSchedule(Schedule instance);
     #endregion
 		
 		public VetDBDataContext() : 
@@ -110,14 +110,6 @@ namespace VetClinic.Models
 			}
 		}
 		
-		public System.Data.Linq.Table<Schedule> Schedule
-		{
-			get
-			{
-				return this.GetTable<Schedule>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Client> Client
 		{
 			get
@@ -147,6 +139,14 @@ namespace VetClinic.Models
 			get
 			{
 				return this.GetTable<Card>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Schedule> Schedule
+		{
+			get
+			{
+				return this.GetTable<Schedule>();
 			}
 		}
 	}
@@ -681,212 +681,6 @@ namespace VetClinic.Models
 		{
 			this.SendPropertyChanging();
 			entity.Role = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Schedule")]
-	public partial class Schedule : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _ID;
-		
-		private int _Doctor;
-		
-		private int _Pet;
-		
-		private System.DateTime _Date;
-		
-		private string _Title;
-		
-		private string _Text;
-		
-		private string _time;
-		
-    #region Определения метода расширяемости
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIDChanging(int value);
-    partial void OnIDChanged();
-    partial void OnDoctorChanging(int value);
-    partial void OnDoctorChanged();
-    partial void OnPetChanging(int value);
-    partial void OnPetChanged();
-    partial void OnDateChanging(System.DateTime value);
-    partial void OnDateChanged();
-    partial void OnTitleChanging(string value);
-    partial void OnTitleChanged();
-    partial void OnTextChanging(string value);
-    partial void OnTextChanged();
-    partial void OntimeChanging(string value);
-    partial void OntimeChanged();
-    #endregion
-		
-		public Schedule()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int ID
-		{
-			get
-			{
-				return this._ID;
-			}
-			set
-			{
-				if ((this._ID != value))
-				{
-					this.OnIDChanging(value);
-					this.SendPropertyChanging();
-					this._ID = value;
-					this.SendPropertyChanged("ID");
-					this.OnIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Doctor", DbType="Int NOT NULL")]
-		public int Doctor
-		{
-			get
-			{
-				return this._Doctor;
-			}
-			set
-			{
-				if ((this._Doctor != value))
-				{
-					this.OnDoctorChanging(value);
-					this.SendPropertyChanging();
-					this._Doctor = value;
-					this.SendPropertyChanged("Doctor");
-					this.OnDoctorChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Pet", DbType="Int NOT NULL")]
-		public int Pet
-		{
-			get
-			{
-				return this._Pet;
-			}
-			set
-			{
-				if ((this._Pet != value))
-				{
-					this.OnPetChanging(value);
-					this.SendPropertyChanging();
-					this._Pet = value;
-					this.SendPropertyChanged("Pet");
-					this.OnPetChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Date", DbType="Date NOT NULL")]
-		public System.DateTime Date
-		{
-			get
-			{
-				return this._Date;
-			}
-			set
-			{
-				if ((this._Date != value))
-				{
-					this.OnDateChanging(value);
-					this.SendPropertyChanging();
-					this._Date = value;
-					this.SendPropertyChanged("Date");
-					this.OnDateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Title", DbType="VarChar(50)")]
-		public string Title
-		{
-			get
-			{
-				return this._Title;
-			}
-			set
-			{
-				if ((this._Title != value))
-				{
-					this.OnTitleChanging(value);
-					this.SendPropertyChanging();
-					this._Title = value;
-					this.SendPropertyChanged("Title");
-					this.OnTitleChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Text", DbType="VarChar(150)")]
-		public string Text
-		{
-			get
-			{
-				return this._Text;
-			}
-			set
-			{
-				if ((this._Text != value))
-				{
-					this.OnTextChanging(value);
-					this.SendPropertyChanging();
-					this._Text = value;
-					this.SendPropertyChanged("Text");
-					this.OnTextChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_time", DbType="VarChar(5)")]
-		public string time
-		{
-			get
-			{
-				return this._time;
-			}
-			set
-			{
-				if ((this._time != value))
-				{
-					this.OntimeChanging(value);
-					this.SendPropertyChanging();
-					this._time = value;
-					this.SendPropertyChanged("time");
-					this.OntimeChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
 		}
 	}
 	
@@ -1591,6 +1385,212 @@ namespace VetClinic.Models
 						this._Pet = default(int);
 					}
 					this.SendPropertyChanged("Pet1");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Schedule")]
+	public partial class Schedule : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ID;
+		
+		private int _Doctor;
+		
+		private int _Pet;
+		
+		private System.DateTime _Date;
+		
+		private string _Title;
+		
+		private string _Text;
+		
+		private string _Time;
+		
+    #region Определения метода расширяемости
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIDChanging(int value);
+    partial void OnIDChanged();
+    partial void OnDoctorChanging(int value);
+    partial void OnDoctorChanged();
+    partial void OnPetChanging(int value);
+    partial void OnPetChanged();
+    partial void OnDateChanging(System.DateTime value);
+    partial void OnDateChanged();
+    partial void OnTitleChanging(string value);
+    partial void OnTitleChanged();
+    partial void OnTextChanging(string value);
+    partial void OnTextChanged();
+    partial void OnTimeChanging(string value);
+    partial void OnTimeChanged();
+    #endregion
+		
+		public Schedule()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this.OnIDChanging(value);
+					this.SendPropertyChanging();
+					this._ID = value;
+					this.SendPropertyChanged("ID");
+					this.OnIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Doctor", DbType="Int NOT NULL")]
+		public int Doctor
+		{
+			get
+			{
+				return this._Doctor;
+			}
+			set
+			{
+				if ((this._Doctor != value))
+				{
+					this.OnDoctorChanging(value);
+					this.SendPropertyChanging();
+					this._Doctor = value;
+					this.SendPropertyChanged("Doctor");
+					this.OnDoctorChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Pet", DbType="Int NOT NULL")]
+		public int Pet
+		{
+			get
+			{
+				return this._Pet;
+			}
+			set
+			{
+				if ((this._Pet != value))
+				{
+					this.OnPetChanging(value);
+					this.SendPropertyChanging();
+					this._Pet = value;
+					this.SendPropertyChanged("Pet");
+					this.OnPetChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Date", DbType="Date NOT NULL")]
+		public System.DateTime Date
+		{
+			get
+			{
+				return this._Date;
+			}
+			set
+			{
+				if ((this._Date != value))
+				{
+					this.OnDateChanging(value);
+					this.SendPropertyChanging();
+					this._Date = value;
+					this.SendPropertyChanged("Date");
+					this.OnDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Title", DbType="VarChar(50)")]
+		public string Title
+		{
+			get
+			{
+				return this._Title;
+			}
+			set
+			{
+				if ((this._Title != value))
+				{
+					this.OnTitleChanging(value);
+					this.SendPropertyChanging();
+					this._Title = value;
+					this.SendPropertyChanged("Title");
+					this.OnTitleChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Text", DbType="VarChar(150)")]
+		public string Text
+		{
+			get
+			{
+				return this._Text;
+			}
+			set
+			{
+				if ((this._Text != value))
+				{
+					this.OnTextChanging(value);
+					this.SendPropertyChanging();
+					this._Text = value;
+					this.SendPropertyChanged("Text");
+					this.OnTextChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Time", DbType="VarChar(5)")]
+		public string Time
+		{
+			get
+			{
+				return this._Time;
+			}
+			set
+			{
+				if ((this._Time != value))
+				{
+					this.OnTimeChanging(value);
+					this.SendPropertyChanging();
+					this._Time = value;
+					this.SendPropertyChanged("Time");
+					this.OnTimeChanged();
 				}
 			}
 		}

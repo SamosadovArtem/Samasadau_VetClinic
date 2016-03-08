@@ -27,17 +27,6 @@
       <Association Name="Role_DoctorRole" Member="DoctorRole" ThisKey="ID" OtherKey="RoleID" Type="DoctorRole" />
     </Type>
   </Table>
-  <Table Name="dbo.Schedule" Member="Schedule">
-    <Type Name="Schedule">
-      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Doctor" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Pet" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Date" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-      <Column Name="Title" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="Text" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
-      <Column Name="time" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.Client" Member="Client">
     <Type Name="Client">
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -74,6 +63,17 @@
       <Column Name="Date" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Association Name="Pet_Card" Member="Pet1" ThisKey="Pet" OtherKey="ID" Type="Pet" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Schedule" Member="Schedule">
+    <Type Name="Schedule">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Doctor" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Pet" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Date" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Text" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="Time" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
     </Type>
   </Table>
 </Database>

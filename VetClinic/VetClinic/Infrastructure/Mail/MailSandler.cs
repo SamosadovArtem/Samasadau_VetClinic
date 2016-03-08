@@ -6,10 +6,10 @@ namespace VetClinic.Infrastructure.Mail
 {
     public class MailSandler
     {
-        public void SendEmail(string currentBody)
+        public bool SendEmail(string currentBody, string currentEmail)
         {
             var fromAddress = new MailAddress("vetclinic_app@mail.ru", "vetclinic_app@mail.ru");
-            var toAddress = new MailAddress("pizzaeueu@gmail.com", "pizzaeueu@gmail.com");
+            var toAddress = new MailAddress(currentEmail, currentEmail);
              string fromPassword = "Vet123456789";
              string subject = "Subject";
              string body = currentBody;
@@ -29,7 +29,14 @@ namespace VetClinic.Infrastructure.Mail
                 Body = body
             })
             {
-                smtp.Send(message);
+                try {
+                    smtp.Send(message);
+                    return true;
+                }
+                catch (SmtpFailedRecipientException)
+                {
+                    return false;
+                }
             }
         }
     }

@@ -200,5 +200,55 @@ namespace VetClinic.Models.SQLRepository
             dataBase.SubmitChanges();
             return true;
         }
+
+        public bool IsTimeFree(DateTime date, string time)
+        {
+            List<Schedule> thisDate = (from s in dataBase.Schedule
+                                       where s.Date == date
+                                       select s).ToList();
+            foreach (Schedule currentSchedule in thisDate)
+            {
+                if (currentSchedule.Time==time)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        public bool IsPetMakeAnAppOnCurrentDate(DateTime date, int petID)
+        {
+            List<Schedule> thisDate = (from s in dataBase.Schedule
+                                       where s.Date == date
+                                       select s).ToList();
+            foreach (Schedule currentSchedule in thisDate)
+            {
+                if (currentSchedule.Pet == petID)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public bool DoctorConfirmEmail(int doctorID)
+        {
+            Doctor confirmDoctor = (from d in dataBase.Doctor
+                                    where d.ID == doctorID
+                                    select d).Single();
+            confirmDoctor.ConfirmEmail = true;
+            dataBase.SubmitChanges();
+            return true;
+        }
+
+        public bool DeleteDoctor(int doctorID)
+        {
+            Doctor deleteDoctor = (from d in dataBase.Doctor
+                                    where d.ID == doctorID
+                                    select d).Single();
+            dataBase.GetTable<Doctor>().DeleteOnSubmit(deleteDoctor);
+            dataBase.SubmitChanges();
+            return true;
+        }
     }
 }

@@ -43,15 +43,20 @@ namespace VetClinic.Areas.Default.Controllers
                 ModelState.AddModelError("Email", "Пользователь с таким email уже зарегистрирован");
             }
 
+
             if (ModelState.IsValid)
             {
-                var currentDoctor =(Doctor)_mapper.Map(newDoctor, typeof(DoctorView),typeof(Doctor));
-                //TODO : Save
+                var currentDoctor = (Doctor)_mapper.Map(newDoctor, typeof(DoctorView), typeof(Doctor));
                 this.SaveClient(currentDoctor);
-                MailSandler mail = new MailSandler();
-                //mail.SendEmail(string.Format("Для завершения регистрации перейдите по ссылке: " +
-                //            "<a href=\"{0}\">Подтверждение</a>",
-                //Url.Action("ConfirmEmail", "Doctor", new { Doctor = newDoctor })));
+
+                if (!SendEmail(currentDoctor))
+                {
+                    ModelState.AddModelError("Email", "Введите корректный емейл");
+                    DeleteDoctor(currentDoctor.ID);
+                    return View(newDoctor);
+                }
+
+
                 return RedirectToAction("Confirm", "Doctor", new { doctorID = currentDoctor.ID});
 
             }
@@ -60,33 +65,37 @@ namespace VetClinic.Areas.Default.Controllers
             return View(newDoctor);
         }
 
-        public string Confirm(int doctorID)
+        private bool SendEmail(Doctor currentDoctor)
         {
-            //return "Выслано письмо";
-            Doctor dc = _repository.GetDoctorByID(doctorID);
-            return Url.Action("ConfirmEmail", "Doctor", new { dc.ID });
+            MailSandler mail = new MailSandler();
+            return mail.SendEmail(string.Format("Для завершения регистрации перейдите по ссылке: {0}",
+            Url.Action("ConfirmEmail", "Doctor", new { doctorID = currentDoctor.ID }, Request.Url.Scheme)), currentDoctor.Email);
         }
 
-        public ActionResult ConfirmEmail()//int doctorID
+        public string Confirm(int doctorID)
+        {
+            return string.Format("Для завершения регистрации перейдите по ссылке:" +
+                            "<a href=\"{0}\" title=\"Подтвердить регистрацию\">{0}</a>",
+                Url.Action("ConfirmEmail", "Account", new { doctorID = doctorID }, Request.Url.Scheme));
+            //Doctor dc = _repository.GetDoctorByID(doctorID);
+            //return Url.Action("ConfirmEmail", "Doctor", new { dc.ID }, Request.Url.Scheme);
+        }
+
+        public ActionResult ConfirmEmail(int doctorID)
         {
 
-            //Doctor user =  newDoctor;
-            //if (doctorID != null)
-            {
-                Doctor currentDoctor = _repository.GetDoctorByID(1010);//doctorID
-                currentDoctor.ConfirmEmail = true;
-                return RedirectToAction("Index", "Home");
-            }
-           // else
-            {
-                return RedirectToAction("Confirm", "Doctor");
-            }
+            _repository.DoctorConfirmEmail(doctorID);
+            return View();
 
         }
 
         private void SaveClient(Doctor newDoctor)
         {
             _repository.AddDoctor(newDoctor);
+        }
+        private void DeleteDoctor(int doctorID)
+        {
+            _repository.DeleteDoctor(doctorID);
         }
 
     }

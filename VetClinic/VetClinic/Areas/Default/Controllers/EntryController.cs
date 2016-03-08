@@ -25,11 +25,17 @@ namespace VetClinic.Areas.Default.Controllers
         [HttpPost]
         public ActionResult Index(ScheduleView newSchedule)
         {
-            bool anyPetName = _repository.GetSchedules().Any(p => string.Compare(p.Pet.ToString(), newSchedule.Pet.ToString()) == 0);
-            bool anyPetMaster = _repository.GetSchedules().Any(p => string.Compare(p.Date.ToString(), newSchedule.date.ToString()) == 0);
-            if (anyPetName && anyPetMaster)
+            if (IsPetMakeApp(Convert.ToDateTime(newSchedule.date), newSchedule.Pet))
             {
                 ModelState.AddModelError("Title", "Питомец уже записан на выбранную дату");
+            }
+            if (!IsTimeFree(Convert.ToDateTime(newSchedule.date), newSchedule.Time))
+            {
+                ModelState.AddModelError("Time", "Время занято");
+            }
+            if (newSchedule.date <= DateTime.Now)
+            {
+                ModelState.AddModelError("Date", "Запись возможно за один день до рабочего");
             }
 
             if (ModelState.IsValid)
@@ -47,6 +53,15 @@ namespace VetClinic.Areas.Default.Controllers
         private void SavePet(Schedule currentSchedule)
         {
             _repository.AddSchedule(currentSchedule);
+        }
+
+        private bool IsTimeFree(DateTime date, string time)
+        {
+            return _repository.IsTimeFree(date, time);
+        }
+        private bool IsPetMakeApp(DateTime date, int petID)
+        {
+            return _repository.IsPetMakeAnAppOnCurrentDate(date, petID);
         }
     }
 }

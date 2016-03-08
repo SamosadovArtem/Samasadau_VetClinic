@@ -7,7 +7,8 @@
 
 @if (Model != null)
 {
-
+    if (Model.ConfirmEmail != null)
+    {
 
     <ul class="nav navbar-nav">
         <li>@Html.ActionLink(Model.Name, "Index", "Home")</li>
@@ -21,12 +22,26 @@
     <ul class="nav navbar-nav">
         <li>@Html.ActionLink("Выход", "Logout", "Login")</li>
     </ul>
+    }
+    else
+    {
+        <ul class="nav navbar-nav">
+            <li>@Html.ActionLink(Model.Name, "Index", "Home")</li>
+        </ul>
+        <ul class="nav navbar-nav">
+            <li>@Html.ActionLink("Для доступа к функционалу врача необходимо подтверждение администратора", "Index", "Home")</li>
+        </ul>
+        <ul class="nav navbar-nav">
+            <li>@Html.ActionLink("Выход", "Logout", "Login")</li>
+        </ul>
+    }
 
 
 
 }
 else
 {
+
     <ul class="nav navbar-nav">
         <li>@Html.ActionLink("Регистрация", "Register", "Doctor")</li>
     </ul>
@@ -39,6 +54,8 @@ else
     <ul class="nav navbar-nav">
         <li>@Html.ActionLink("Отзыв", "ChooseDoctor", "Recall")</li>
     </ul>
+    
+
 
        <!-- <li></li>-->
     

@@ -6,7 +6,6 @@ using System.Web;
 namespace VetClinic.Models
 {
     public enum EntryTime {
-        jp45,
         asdff
     };
 

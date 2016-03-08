@@ -15,6 +15,7 @@
         @using (Html.BeginForm("AddSchedule", "Schedule", FormMethod.Post, new
         {
             @class = "formhorizontal"
+            
         }))
         {
             <blockquote>
@@ -24,8 +25,8 @@
                             Заголовок
                         </label>
                         <div class="controls">
-                            @Html.TextBox("Title", Model.Title, new { @class = "form-control" })
-                            @Html.ValidationMessage("Title")
+                            @Html.TextBox("Title", Model.Title, new { @class = "form-control" }) @Html.ValidationMessage("Title")
+                            
                         </div>
                     </div>
                     <div class="control-group">
@@ -64,11 +65,32 @@
                             @Html.ValidationMessage("Date")
                         </div>
                     </div>
+                    <br />
+                    @Html.ValidationMessage("Time")
+                    <select id="Time" name="Time">
+                        <option value="10:00">10:00</option>
+                        <option value="10:30">10:30</option>
+                        <option value="11:00">11:00</option>
+                        <option value="11:30">11:30</option>
+                        <option value="12:00">12:00</option>
+                        <option value="13:00">13:00</option>
+                        <option value="13:30">13:30</option>
+                        <option value="14:00">14:00</option>
+                        <option value="14:30">14:30</option>
+                        <option value="15:00">15:00</option>
+                        <option value="15:30">15:30</option>
+                        <option value="16:00">16:00</option>
+                        <option value="16:30">16:30</option>
+                        <option value="17:00">17:00</option>
+                        <option value="17:30">17:30</option>
+                    </select>
+
                     <div class="form-actions">
                         <button type="submit" class="btn btn-primary">
                             Добавить
                         </button>
                     </div>
+
                 </fieldset>
                 </blockquote>
                     }
