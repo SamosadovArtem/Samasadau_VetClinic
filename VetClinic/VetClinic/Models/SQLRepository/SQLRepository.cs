@@ -250,5 +250,27 @@ namespace VetClinic.Models.SQLRepository
             dataBase.SubmitChanges();
             return true;
         }
+
+        public bool DoctorConfirmAdmin(int doctorID)
+        {
+            Doctor confirmDoctor = (from d in dataBase.Doctor
+                                    where d.ID == doctorID
+                                    select d).Single();
+            confirmDoctor.ConfirmAdmin = true;
+            dataBase.SubmitChanges();
+            return true;
+        }
+
+        public bool ChangeSchedule(Schedule instance)
+        {
+            Schedule newSchedule = (from s in dataBase.Schedule
+                                    where s.ID == instance.ID
+                                    select s).Single();
+            newSchedule.Date = instance.Date;
+            newSchedule.Pet = instance.Pet;
+            newSchedule.Time = instance.Time;
+            dataBase.SubmitChanges();
+            return true;
+        }
     }
 }

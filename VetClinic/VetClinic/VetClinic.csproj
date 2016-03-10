@@ -137,8 +137,10 @@
   <ItemGroup>
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\ChangeScheduleController.cs" />
     <Compile Include="Areas\Admin\Controllers\ClientController.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ConfirmController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\PetController.cs" />
     <Compile Include="Areas\Admin\Controllers\ScheduleController.cs" />
@@ -237,6 +239,9 @@
     <Content Include="Areas\Admin\Views\Search\GetPets.cshtml" />
     <Content Include="Areas\Default\Views\Card\SelectPetToEntry.cshtml" />
     <Content Include="Areas\Default\Views\Card\AddNewEntry.cshtml" />
+    <Content Include="Areas\Admin\Views\Confirm\DoctorConfirm.cshtml" />
+    <Content Include="Areas\Admin\Views\ChangeSchedule\GetSchedules.cshtml" />
+    <Content Include="Areas\Admin\Views\ChangeSchedule\Change.cshtml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />

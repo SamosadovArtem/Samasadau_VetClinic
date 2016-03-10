@@ -42,6 +42,8 @@ namespace VetClinic.Models
         Doctor GetUser(string email);
         bool DoctorConfirmEmail(int doctorID);
         bool DeleteDoctor(int doctorID);
+        bool DoctorConfirmAdmin(int doctorID);
+        bool ChangeSchedule(Schedule instance);
 
         //--------------------
 

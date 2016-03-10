@@ -1,0 +1,38 @@
+﻿@model IEnumerable<VetClinic.Models.ViewModels.DoctorView>
+
+@{
+    ViewBag.Title = "DoctorConfirm";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="table-striped">
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+ 
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.ActionLink("Подтвердить", "Result", new { doctorID = item.ID, status = "Add" }) |
+                    @Html.ActionLink("Удалить", "Result", new { doctorID = item.ID, status = "Delete" })
+                </td>
+            </tr>
+        }
+
+    </table>
+    </div>

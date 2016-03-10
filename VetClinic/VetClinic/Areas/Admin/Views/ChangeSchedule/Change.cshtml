@@ -1,0 +1,83 @@
+﻿@model VetClinic.Models.ViewModels.ScheduleView
+
+@{
+    ViewBag.Title = "ChangeSchedule";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+<html>
+<head>
+
+</head>
+<body>
+
+
+    <h2>ChangeSchedule</h2>
+
+    @using (Html.BeginForm("Change", "ChangeSchedule", FormMethod.Post, new
+    {
+        @class = "formhorizontal"
+
+    }))
+    {
+        <blockquote>
+            <fieldset>
+                @Html.HiddenFor(m=>m.ID)
+                <div class="control-group">
+                    <label class="control-label" for="Pet">
+                        Питомец
+                    </label>
+                    <div class="controls">
+                        @Html.DropDownListFor(m => m.Pet, new MultiSelectList(Model.PetList, "ID", "Name"))
+                        @Html.ValidationMessage("Pet")
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="Date">
+                        Дата приема
+                    </label>
+                    <div class="controls">
+                        @Html.EditorFor(m => m.date, "{0:dd/MM/yyyy}")
+                        @Html.ValidationMessage("Date")
+                    </div>
+                </div>
+                <br />
+                <label class="control-label" for="Time">
+                    Время приема
+                </label>
+                @Html.ValidationMessage("Time")
+                <select id="Time" name="Time">
+                    <option value="10:00">10:00</option>
+                    <option value="10:30">10:30</option>
+                    <option value="11:00">11:00</option>
+                    <option value="11:30">11:30</option>
+                    <option value="12:00">12:00</option>
+                    <option value="13:00">13:00</option>
+                    <option value="13:30">13:30</option>
+                    <option value="14:00">14:00</option>
+                    <option value="14:30">14:30</option>
+                    <option value="15:00">15:00</option>
+                    <option value="15:30">15:30</option>
+                    <option value="16:00">16:00</option>
+                    <option value="16:30">16:30</option>
+                    <option value="17:00">17:00</option>
+                    <option value="17:30">17:30</option>
+                </select>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">
+                        Добавить
+                    </button>
+                </div>
+
+            </fieldset>
+        </blockquote>
+    }
+
+                <div>
+                    @Html.ActionLink("Назад", "GetSchedules")
+                </div>
+
+</body>
+</html>

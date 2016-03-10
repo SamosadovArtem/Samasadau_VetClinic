@@ -1,0 +1,65 @@
+﻿@model IEnumerable<VetClinic.Models.ViewModels.ScheduleView>
+
+@{
+    ViewBag.Title = "GetSchedules";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<html>
+<head>
+
+</head>
+<body>
+
+
+
+    <div class="table-striped">
+        <table class="table">
+            <tr>
+                <th>
+                    Дата приема
+                </th>
+
+                <th>
+                    Время приема
+                </th>
+                <th>
+                    Причина приема
+                </th>
+                <th>
+                    Питомец
+                </th>
+
+
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+
+                    <td>
+                        @item.DateToDisplay.ToShortDateString()
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Time)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PetName)
+                    </td>
+
+
+                    <td>
+                        @Html.ActionLink("Изменить", "Change", new { scheduleID = item.ID })
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+
+</body>
+</html>
