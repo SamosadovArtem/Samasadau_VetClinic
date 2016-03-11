@@ -1,0 +1,32 @@
+﻿@model IEnumerable<VetClinic.Models.ViewModels.PetView>
+
+@{
+    ViewBag.Title = "GetPet";
+    Layout = "~/Areas/Default/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="table-striped">
+    <table class="table">
+        <tr>
+            <th>
+                Имя питомца
+            </th>
+           
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.name)
+                </td>
+                <td>
+                    @Html.ActionLink("Посмотреть карточку", "Result", new { userPetID = item.ID })
+
+                </td>
+            </tr>
+        }
+
+    </table>
+    </div>

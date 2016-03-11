@@ -54,6 +54,26 @@
       <Association Name="Pet_Card" Member="Pet1" ThisKey="Pet" OtherKey="ID" Type="Pet" IsForeignKey="true" />
     </Type>
   </Table>
+  <Table Name="dbo.Doctor" Member="Doctor">
+    <Type Name="Doctor">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ConfirmEmail" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ConfirmAdmin" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="Doctor_DoctorRole" Member="DoctorRole" ThisKey="ID" OtherKey="DoctorID" Type="DoctorRole" />
+      <Association Name="Doctor_Recall" Member="Recall" ThisKey="ID" OtherKey="DoctorID" Type="Recall" />
+    </Type>
+  </Table>
+  <Table Name="dbo.[Procedure]" Member="Procedure">
+    <Type Name="Procedure">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Cost" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Procedure_Schedule" Member="Schedule" ThisKey="ID" OtherKey="ProcedureID" Type="Schedule" />
+    </Type>
+  </Table>
   <Table Name="dbo.Schedule" Member="Schedule">
     <Type Name="Schedule">
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -63,18 +83,8 @@
       <Column Name="Title" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="Text" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
       <Column Name="Time" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Doctor" Member="Doctor">
-    <Type Name="Doctor">
-      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Email" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Password" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="ConfirmEmail" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="ConfirmAdmin" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Association Name="Doctor_Recall" Member="Recall" ThisKey="ID" OtherKey="DoctorID" Type="Recall" />
-      <Association Name="Doctor_DoctorRole" Member="DoctorRole" ThisKey="ID" OtherKey="DoctorID" Type="DoctorRole" />
+      <Column Name="ProcedureID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Procedure_Schedule" Member="Procedure" ThisKey="ProcedureID" OtherKey="ID" Type="Procedure" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

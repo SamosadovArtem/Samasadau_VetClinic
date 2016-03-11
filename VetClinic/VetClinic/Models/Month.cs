@@ -100,7 +100,7 @@ namespace VetClinic.Models
                 if (currentDate == allSchedule[i].Date)
                 {
                     string petName = GetPetNameByID(allSchedule[i].Pet);
-                    Task tempTask = new Task(allSchedule[i].Doctor, allSchedule[i].Title, allSchedule[i].Text,allSchedule[i].Pet, petName);
+                    Task tempTask = new Task(allSchedule[i].Doctor, allSchedule[i].Title, allSchedule[i].Text,allSchedule[i].Pet, petName, allSchedule[i].Time);
                     taskList.Add(tempTask);
                 }
             }

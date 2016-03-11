@@ -1,0 +1,45 @@
+﻿@model VetClinic.Models.ViewModels.ProcedureView
+@{
+    ViewBag.Title = "AddProcedure";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Добавить новую процедуру</h2>
+<div>
+    @using (Html.BeginForm("AddProcedure", "Procedure", FormMethod.Post, new
+    {
+        @class = "formhorizontal"
+    }))
+    {
+        <blockquote>
+            <fieldset>
+
+                <div class="control-group">
+                    <label class="control-label" for="Title">
+                        Название
+                    </label>
+                    <div class="controls">
+                        @Html.TextBox("Title", Model.Title, new { @class = "form-control",value = "" }) @Html.ValidationMessage("Title")
+
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label class="control-label" for="Cost">
+                        Стоимость
+                    </label>
+                    <div class="controls">
+                        @Html.TextBox("Cost", Model.Cost, new { @class = "form-control" })
+                        @Html.ValidationMessage("Cost")
+                    </div>
+                </div>
+                
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">
+                        Добавить
+                    </button>
+                </div>
+            </fieldset>
+        </blockquote>
+    }
+</div>

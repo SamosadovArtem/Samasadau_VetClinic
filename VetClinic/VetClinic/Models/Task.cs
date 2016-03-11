@@ -12,13 +12,15 @@ namespace VetClinic.Models
         public string taskText { get; set; }
         public int petID { get; set; }
         public string petName { get; set; }
-        public Task(int currentDoctor, string currentTaskTitle, string currentTaskText, int currentPetID, string currentPetName)
+        public string time { get; set; }
+        public Task(int currentDoctor, string currentTaskTitle, string currentTaskText, int currentPetID, string currentPetName, string currentTime)
         {
             doctorID = currentDoctor;
             taskTitle = currentTaskTitle;
             taskText = currentTaskText;
             petID = currentPetID;
             petName = currentPetName;
+            time = currentTime;
         }
     }
 }

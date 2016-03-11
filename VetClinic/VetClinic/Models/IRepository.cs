@@ -34,6 +34,7 @@ namespace VetClinic.Models
         bool DeleteSchedule(Schedule instance);
         bool IsTimeFree(DateTime date, string time);
         bool IsPetMakeAnAppOnCurrentDate(DateTime date, int petID);
+        bool AddProcedure(Procedure instance);
 
 
         //--------------------
@@ -44,6 +45,8 @@ namespace VetClinic.Models
         bool DeleteDoctor(int doctorID);
         bool DoctorConfirmAdmin(int doctorID);
         bool ChangeSchedule(Schedule instance);
+        IQueryable<Schedule> GetSchedulesToCurrentDoctor(int doctorID);
+        IQueryable<Procedure> GetProcedures();
 
         //--------------------
 

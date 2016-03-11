@@ -20,6 +20,7 @@ namespace VetClinic.Areas.Default.Controllers
             ScheduleView newSchedule = new ScheduleView();
             newSchedule.DoctorList = _repository.GetDoctors().ToList();
             newSchedule.PetList = _repository.GetPets().ToList();
+            newSchedule.ProcedureList = _repository.GetProcedures().ToList();
             return View(newSchedule);
         }
         [HttpPost]
@@ -47,6 +48,7 @@ namespace VetClinic.Areas.Default.Controllers
             }
             newSchedule.DoctorList = _repository.GetDoctors().ToList();
             newSchedule.PetList = _repository.GetPets().ToList();
+            newSchedule.ProcedureList = _repository.GetProcedures().ToList();
             return View(newSchedule);
         }
 

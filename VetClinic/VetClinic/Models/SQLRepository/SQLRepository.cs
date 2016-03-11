@@ -272,5 +272,24 @@ namespace VetClinic.Models.SQLRepository
             dataBase.SubmitChanges();
             return true;
         }
+
+        public IQueryable<Schedule> GetSchedulesToCurrentDoctor(int doctorID)
+        {
+            return (from s in dataBase.Schedule
+                    where s.Doctor == doctorID
+                    select s);
+        }
+
+        public IQueryable<Procedure> GetProcedures()
+        {
+            return dataBase.Procedure;
+        }
+
+        public bool AddProcedure(Procedure instance)
+        {
+            dataBase.Procedure.InsertOnSubmit(instance);
+            dataBase.Procedure.Context.SubmitChanges();
+            return true;
+        }
     }
 }

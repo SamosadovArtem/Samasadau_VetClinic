@@ -11,6 +11,7 @@ namespace VetClinic.Models.ViewModels
         public int ID { get; set; }
         public int Doctor { get; set; }
         public int Pet { get; set; }
+        public int ProcedureID { get; set; }
 
         [DataType(DataType.Date)]
         public Nullable<System.DateTime> date { get; set; }
@@ -22,6 +23,7 @@ namespace VetClinic.Models.ViewModels
         public string Text { get; set; }
         public List<Doctor> DoctorList { get; set; }
         public List<Pet> PetList { get; set; }
+        public List<Procedure> ProcedureList { get; set; }
 
         public string PetName { get; set; }
         public string Time { get; set; }

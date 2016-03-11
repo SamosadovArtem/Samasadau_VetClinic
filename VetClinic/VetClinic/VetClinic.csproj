@@ -143,6 +143,7 @@
     <Compile Include="Areas\Admin\Controllers\ConfirmController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\PetController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ProcedureController.cs" />
     <Compile Include="Areas\Admin\Controllers\ScheduleController.cs" />
     <Compile Include="Areas\Admin\Controllers\SearchController.cs" />
     <Compile Include="Areas\Admin\Controllers\SuccessController.cs" />
@@ -191,6 +192,7 @@
     <Compile Include="Models\ViewModels\DoctorView.cs" />
     <Compile Include="Models\ViewModels\LoginView.cs" />
     <Compile Include="Models\ViewModels\PetView.cs" />
+    <Compile Include="Models\ViewModels\ProcedureView.cs" />
     <Compile Include="Models\ViewModels\RecallView.cs" />
     <Compile Include="Models\ViewModels\ScheduleView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -228,7 +230,6 @@
     <Content Include="Areas\Admin\Views\Pet\AddPet.cshtml" />
     <Content Include="Areas\Admin\Views\Schedule\AddSchedule.cshtml" />
     <Content Include="Areas\Admin\Views\Success\Index.cshtml" />
-    <Content Include="Areas\Default\Views\Detail\Index.cshtml" />
     <Content Include="Areas\Default\Views\Card\Index.cshtml" />
     <Content Include="Areas\Default\Views\Entry\Index.cshtml" />
     <Content Include="Areas\Default\Views\Success\Index.cshtml" />
@@ -242,6 +243,8 @@
     <Content Include="Areas\Admin\Views\Confirm\DoctorConfirm.cshtml" />
     <Content Include="Areas\Admin\Views\ChangeSchedule\GetSchedules.cshtml" />
     <Content Include="Areas\Admin\Views\ChangeSchedule\Change.cshtml" />
+    <Content Include="Areas\Default\Views\Detail\GetPet.cshtml" />
+    <Content Include="Areas\Admin\Views\Procedure\AddProcedure.cshtml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />

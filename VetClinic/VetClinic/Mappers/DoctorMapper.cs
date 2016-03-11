@@ -21,6 +21,9 @@ namespace VetClinic.Mappers
             Mapper.CreateMap<ScheduleView, Schedule>();
             Mapper.CreateMap<Schedule, ScheduleView>();
             Mapper.CreateMap<RecallView, Recall>();
+            Mapper.CreateMap<ProcedureView, Procedure>();
+            Mapper.CreateMap<Procedure, ProcedureView>();
+
         }
         public object Map(object source, Type sourceType, Type destinationType)
         {

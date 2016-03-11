@@ -24,6 +24,7 @@ namespace VetClinic.Areas.Admin.Controllers
             ScheduleView newSchedule = new ScheduleView();
             newSchedule.DoctorList = _repository.GetDoctors().ToList();
             newSchedule.PetList = _repository.GetPets().ToList();
+            newSchedule.ProcedureList = _repository.GetProcedures().ToList();
             return View(newSchedule);
         }
 
@@ -53,6 +54,7 @@ namespace VetClinic.Areas.Admin.Controllers
             }
             newSchedule.DoctorList = _repository.GetDoctors().ToList();
             newSchedule.PetList = _repository.GetPets().ToList();
+            newSchedule.ProcedureList = _repository.GetProcedures().ToList();
             return View(newSchedule);
         }
 
