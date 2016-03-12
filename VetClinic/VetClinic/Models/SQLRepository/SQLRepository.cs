@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Ninject;
+using VetClinic.Models.ViewModels;
 
 namespace VetClinic.Models.SQLRepository
 {
@@ -289,6 +290,28 @@ namespace VetClinic.Models.SQLRepository
         {
             dataBase.Procedure.InsertOnSubmit(instance);
             dataBase.Procedure.Context.SubmitChanges();
+            return true;
+        }
+
+        public bool AddDayOff(Daysoff instance)
+        {
+            dataBase.Daysoff.InsertOnSubmit(instance);
+            dataBase.Daysoff.Context.SubmitChanges();
+            return true;
+        }
+
+        public IQueryable<Daysoff> GetDaysOff()
+        {
+            return dataBase.Daysoff;
+        }
+
+        public bool DeleteDayOff(int dayoffID)
+        {
+            Daysoff deleteDayoff = (from d in dataBase.Daysoff
+                                   where d.ID == dayoffID
+                                   select d).Single();
+            dataBase.GetTable<Daysoff>().DeleteOnSubmit(deleteDayoff);
+            dataBase.SubmitChanges();
             return true;
         }
     }

@@ -141,6 +141,7 @@
     <Compile Include="Areas\Admin\Controllers\ClientController.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminController.cs" />
     <Compile Include="Areas\Admin\Controllers\ConfirmController.cs" />
+    <Compile Include="Areas\Admin\Controllers\DaysOffController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\PetController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProcedureController.cs" />
@@ -190,6 +191,7 @@
     </Compile>
     <Compile Include="Models\ViewModels\CardView.cs" />
     <Compile Include="Models\ViewModels\ClientView.cs" />
+    <Compile Include="Models\ViewModels\DaysoffView.cs" />
     <Compile Include="Models\ViewModels\DoctorView.cs" />
     <Compile Include="Models\ViewModels\LoginView.cs" />
     <Compile Include="Models\ViewModels\PetView.cs" />
@@ -247,6 +249,7 @@
     <Content Include="Areas\Default\Views\Detail\GetPet.cshtml" />
     <Content Include="Areas\Admin\Views\Procedure\AddProcedure.cshtml" />
     <Content Include="Areas\Admin\Views\Delivery\SetEmailText.cshtml" />
+    <Content Include="Areas\Admin\Views\DaysOff\NewDayOff.cshtml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />

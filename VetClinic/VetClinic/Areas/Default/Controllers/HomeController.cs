@@ -52,7 +52,6 @@ namespace VetClinic.Areas.Default.Controllers
             }
             // List<Doctor> doctors = new List<Doctor>();
             //doctors.Add(new Doctor());
-            
             return View(currentMonth);
             //return DateWork.GetFirstDayOfMonthName();
             //return doctors[0].Name;

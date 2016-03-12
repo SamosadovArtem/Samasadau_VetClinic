@@ -23,6 +23,8 @@ namespace VetClinic.Mappers
             Mapper.CreateMap<RecallView, Recall>();
             Mapper.CreateMap<ProcedureView, Procedure>();
             Mapper.CreateMap<Procedure, ProcedureView>();
+            Mapper.CreateMap<Daysoff, DaysoffView>();
+            Mapper.CreateMap<DaysoffView, Daysoff>();
 
         }
         public object Map(object source, Type sourceType, Type destinationType)

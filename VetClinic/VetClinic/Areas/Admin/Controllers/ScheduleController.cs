@@ -44,6 +44,10 @@ namespace VetClinic.Areas.Admin.Controllers
             {
                 ModelState.AddModelError("Date", "Запись возможно за один день до рабочего");
             }
+            if (IsDayOff(Convert.ToDateTime(newSchedule.date)))
+            {
+                ModelState.AddModelError("Date", "Нельзя записаться на выходной день");
+            }
 
             if (ModelState.IsValid)
             {
@@ -70,6 +74,23 @@ namespace VetClinic.Areas.Admin.Controllers
         private bool IsPetMakeApp(DateTime date, int petID)
         {
             return _repository.IsPetMakeAnAppOnCurrentDate(date, petID);
+        }
+
+        private bool IsDayOff(DateTime date)
+        {
+            List<Daysoff> allDaysOff = _repository.GetDaysOff().ToList();
+            foreach (Daysoff dayoff in allDaysOff)
+            {
+                if ((dayoff.Date==date))
+                {
+                    return true;
+                }
+            }
+            if ((date.DayOfWeek == DayOfWeek.Saturday)|| (date.DayOfWeek == DayOfWeek.Sunday))
+            {
+                return true;
+            }
+            return false;
         }
     }
 }

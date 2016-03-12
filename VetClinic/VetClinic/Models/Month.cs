@@ -10,6 +10,8 @@ namespace VetClinic.Models
     public class Month
     {
 
+        private DateTime currentMonth;
+
         private IRepository repository;
         public List<Day> days { get; }
         public int daysInMonth { get; }
@@ -77,10 +79,12 @@ namespace VetClinic.Models
                 int daysFromFirstDay = today.Day - 1;
                 DateTime currentDay = today.AddDays(-daysFromFirstDay + i);
                 Day tempDayInfo;
+
                 List<Task> tasksForCurrentDay = TaskToDate(allSchedule, currentDay);
                 if (tasksForCurrentDay.Count != 0)
                 {
                     tempDayInfo = new Day(i + 1, tasksForCurrentDay, true);
+
 
                     counterForSchedule++;
                 }

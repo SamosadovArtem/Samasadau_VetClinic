@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using VetClinic.Models.ViewModels;
 
 namespace VetClinic.Models
 {
@@ -33,13 +34,16 @@ namespace VetClinic.Models
         bool AddCard(Card instance);
         bool DeleteSchedule(Schedule instance);
         bool IsTimeFree(DateTime date, string time);
+        bool AddDayOff(Daysoff instance);
         bool IsPetMakeAnAppOnCurrentDate(DateTime date, int petID);
+        IQueryable<Daysoff> GetDaysOff();
         bool AddProcedure(Procedure instance);
 
 
         //--------------------
 
         Doctor Login(string email, string password);
+        bool DeleteDayOff(int dayoffID);
         Doctor GetUser(string email);
         bool DoctorConfirmEmail(int doctorID);
         bool DeleteDoctor(int doctorID);

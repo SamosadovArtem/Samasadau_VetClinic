@@ -87,4 +87,10 @@
       <Association Name="Procedure_Schedule" Member="Procedure" ThisKey="ProcedureID" OtherKey="ID" Type="Procedure" IsForeignKey="true" />
     </Type>
   </Table>
+  <Table Name="dbo.Daysoff" Member="Daysoff">
+    <Type Name="Daysoff">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Date" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
 </Database>

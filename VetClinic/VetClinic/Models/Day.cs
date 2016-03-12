@@ -7,7 +7,7 @@ namespace VetClinic.Models
 {
     public class Day
     {
-        public List<Task> taskList { get; }
+        public List<Task> taskList { get;  }
         public bool isHaveTask { get; }
         public int dayNumber { get; }
 

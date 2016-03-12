@@ -20,7 +20,7 @@
         <elementListCompartment Id="6f3751a4-5791-4c4e-bc6a-56ea54fb4312" absoluteBounds="6.64, 3.71, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(6.625 : 3.94314697265625); (6.125 : 3.94314697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(6.625 : 3.94314697265625); (6.125 : 3.94314697265625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/VetDBDataContext/Role/Role_DoctorRole" />
       <nodes>
         <classShapeMoniker Id="d6c7bfcc-cde0-4e2c-b7a5-0cc3e0459336" />
@@ -65,7 +65,7 @@
         <elementListCompartment Id="f56cf739-605d-433a-8fc7-939f090eaebe" absoluteBounds="1.1400000000000001, 3.71, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(2.125 : 3.25); (2.125 : 2.70359537760417)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.125 : 3.25); (2.125 : 2.70359537760417)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/VetDBDataContext/Doctor/Doctor_Recall" />
       <nodes>
         <classShapeMoniker Id="b7cc3be0-a34d-4939-bd61-48374dd305ed" />
@@ -98,5 +98,11 @@
         <classShapeMoniker Id="c806cccb-c709-45b8-9606-f127b4392df9" />
       </nodes>
     </associationConnector>
+    <classShape Id="57e87241-e6bd-4598-8f4e-a3b9668bcda9" absoluteBounds="4.375, 5, 2, 1.1939925130208333">
+      <DataClassMoniker Name="/VetDBDataContext/Daysoff" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1a22d2fd-3a71-4474-bba9-311c1a3294ca" absoluteBounds="4.39, 5.46, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
   </nestedChildShapes>
 </ordesignerObjectsDiagram>

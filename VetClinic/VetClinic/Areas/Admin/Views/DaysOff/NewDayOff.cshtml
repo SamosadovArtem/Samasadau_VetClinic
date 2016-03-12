@@ -1,0 +1,37 @@
+﻿@model VetClinic.Models.ViewModels.DaysoffView
+@{
+    ViewBag.Title = "NewDayOff";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Добавить выходной</h2>
+@using (Html.BeginForm("NewDayOff", "DaysOff", FormMethod.Post, new
+{
+    @class = "formhorizontal"
+
+}))
+{
+    <blockquote>
+        <fieldset>
+           
+
+            <div class="control-group">
+                <label class="control-label" for="Date">
+                    Дата приема
+                </label>
+                <div class="controls">
+                    @Html.EditorFor(m => m.date, "{0:dd/MM/yyyy}")
+                    @Html.ValidationMessage("Date")
+                </div>
+            </div>
+           
+
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary">
+                    Добавить
+                </button>
+            </div>
+
+        </fieldset>
+    </blockquote>
+}
