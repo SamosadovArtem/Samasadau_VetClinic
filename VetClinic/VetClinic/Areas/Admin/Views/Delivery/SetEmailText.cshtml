@@ -1,0 +1,19 @@
+﻿@{
+    ViewBag.Title = "SetEmailText";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Рассылка для всех врачей</h2>
+
+
+<form action="SetEmailText" method="post">
+    <blockquote>
+        <div class="form-group">
+            @Html.ValidationMessage("emailText") <br />
+            <textarea id="mailText" name="emailText" type="text" value=""></textarea> <br />
+            <input type="submit" class="btn-success" rows="5" />
+
+        </div>
+
+    </blockquote>
+</form>

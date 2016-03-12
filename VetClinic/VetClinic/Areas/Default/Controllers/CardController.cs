@@ -35,7 +35,7 @@ namespace VetClinic.Areas.Default.Controllers
             List<Schedule> allSchedule = _repository.GetSchedules().ToList();
             foreach (Schedule schedule in allSchedule)
             {
-                if ((schedule.Date.Day <= DateTime.Today.Day) && (CurrentUser.ID == schedule.Doctor))
+                if ((schedule.Date <= DateTime.Today) && (CurrentUser.ID == schedule.Doctor))
                 {
                     ScheduleView tempScheduleView = (ScheduleView)_mapper.Map(schedule, typeof(Schedule), typeof(ScheduleView));
                     tempScheduleView.DateToDisplay = Convert.ToDateTime(tempScheduleView.date);

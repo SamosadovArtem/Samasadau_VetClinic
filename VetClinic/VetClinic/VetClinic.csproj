@@ -147,6 +147,7 @@
     <Compile Include="Areas\Admin\Controllers\ScheduleController.cs" />
     <Compile Include="Areas\Admin\Controllers\SearchController.cs" />
     <Compile Include="Areas\Admin\Controllers\SuccessController.cs" />
+    <Compile Include="Areas\Admin\Controllers\DeliveryController.cs" />
     <Compile Include="Areas\Default\Controllers\CardController.cs" />
     <Compile Include="Areas\Default\Controllers\DetailController.cs" />
     <Compile Include="Areas\Default\Controllers\EntryController.cs" />
@@ -245,6 +246,7 @@
     <Content Include="Areas\Admin\Views\ChangeSchedule\Change.cshtml" />
     <Content Include="Areas\Default\Views\Detail\GetPet.cshtml" />
     <Content Include="Areas\Admin\Views\Procedure\AddProcedure.cshtml" />
+    <Content Include="Areas\Admin\Views\Delivery\SetEmailText.cshtml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />

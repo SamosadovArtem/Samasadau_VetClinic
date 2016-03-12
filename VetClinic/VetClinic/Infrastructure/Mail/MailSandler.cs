@@ -1,6 +1,8 @@
 ﻿using ActionMailer.Net.Mvc;
+using System.Collections.Generic;
 using System.Net;
 using System.Net.Mail;
+using VetClinic.Models;
 
 namespace VetClinic.Infrastructure.Mail
 {
@@ -11,7 +13,7 @@ namespace VetClinic.Infrastructure.Mail
             var fromAddress = new MailAddress("vetclinic_app@mail.ru", "vetclinic_app@mail.ru");
             var toAddress = new MailAddress(currentEmail, currentEmail);
              string fromPassword = "Vet123456789";
-             string subject = "Subject";
+             string subject = "Ветеринарная клиника";
              string body = currentBody;
 
             var smtp = new SmtpClient
@@ -37,6 +39,14 @@ namespace VetClinic.Infrastructure.Mail
                 {
                     return false;
                 }
+            }
+        }
+
+        public void MakeDeliver(List<Doctor> allDoctors, string mailText)
+        {
+            foreach (Doctor doctor in allDoctors)
+            {
+                SendEmail(mailText, doctor.Email);
             }
         }
     }
