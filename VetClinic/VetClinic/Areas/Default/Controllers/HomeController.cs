@@ -69,5 +69,10 @@ namespace VetClinic.Areas.Default.Controllers
             currentMonth.GenerateDaysInfo(currentSchedule);
             return currentMonth;
         }
+
+        public ActionResult Help()
+        {
+            return View();
+        }
     }
 }

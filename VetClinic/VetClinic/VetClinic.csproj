@@ -251,6 +251,8 @@
     <Content Include="Areas\Admin\Views\Procedure\AddProcedure.cshtml" />
     <Content Include="Areas\Admin\Views\Delivery\SetEmailText.cshtml" />
     <Content Include="Areas\Admin\Views\DaysOff\NewDayOff.cshtml" />
+    <Content Include="Areas\Default\Views\Doctor\Confirm.cshtml" />
+    <Content Include="Areas\Default\Views\Home\Help.cshtml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />

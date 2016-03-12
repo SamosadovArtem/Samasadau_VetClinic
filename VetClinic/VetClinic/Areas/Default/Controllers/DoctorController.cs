@@ -59,7 +59,7 @@ namespace VetClinic.Areas.Default.Controllers
                 }
 
 
-                return RedirectToAction("Confirm", "Doctor", new { doctorID = currentDoctor.ID});
+                return RedirectToAction("Confirm", "Doctor");
 
             }
 
@@ -74,13 +74,9 @@ namespace VetClinic.Areas.Default.Controllers
             Url.Action("ConfirmEmail", "Doctor", new { doctorID = currentDoctor.ID }, Request.Url.Scheme)), currentDoctor.Email);
         }
 
-        public string Confirm(int doctorID)
+        public ActionResult Confirm()
         {
-            return string.Format("Для завершения регистрации перейдите по ссылке:" +
-                            "<a href=\"{0}\" title=\"Подтвердить регистрацию\">{0}</a>",
-                Url.Action("ConfirmEmail", "Account", new { doctorID = doctorID }, Request.Url.Scheme));
-            //Doctor dc = _repository.GetDoctorByID(doctorID);
-            //return Url.Action("ConfirmEmail", "Doctor", new { dc.ID }, Request.Url.Scheme);
+            return View();
         }
 
         public ActionResult ConfirmEmail(int doctorID)
