@@ -172,6 +172,7 @@
     <Compile Include="Infrastructure\DateWork.cs" />
     <Compile Include="Infrastructure\DayInfo.cs" />
     <Compile Include="Infrastructure\Mail\MailSandler.cs" />
+    <Compile Include="Infrastructure\PasswordHasher.cs" />
     <Compile Include="Infrastructure\Validation\EmailValidation.cs" />
     <Compile Include="Mappers\DoctorMapper.cs" />
     <Compile Include="Mappers\IMapper.cs" />

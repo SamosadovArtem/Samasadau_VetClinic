@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using VetClinic.Controllers;
+using VetClinic.Infrastructure;
 using VetClinic.Infrastructure.Mail;
 using VetClinic.Models;
 using VetClinic.Models.ViewModels;
@@ -47,6 +48,7 @@ namespace VetClinic.Areas.Default.Controllers
             if (ModelState.IsValid)
             {
                 var currentDoctor = (Doctor)_mapper.Map(newDoctor, typeof(DoctorView), typeof(Doctor));
+                currentDoctor.Password = PasswordHasher.GetHashPassword(currentDoctor.Password);
                 this.SaveClient(currentDoctor);
 
                 if (!SendEmail(currentDoctor))

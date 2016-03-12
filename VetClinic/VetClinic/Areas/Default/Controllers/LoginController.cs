@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using VetClinic.Controllers;
+using VetClinic.Infrastructure;
 using VetClinic.Models.ViewModels;
 
 namespace VetClinic.Areas.Default.Controllers
@@ -24,7 +25,8 @@ namespace VetClinic.Areas.Default.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = _auth.Login(loginView.Email, loginView.Password, loginView.IsPersistent);
+                string hashPassword = GetHashPassword(loginView.Password);
+                var user = _auth.Login(loginView.Email, hashPassword, loginView.IsPersistent);
                 if (user != null)
                 {
                     return RedirectToAction("Index", "Home");
@@ -39,6 +41,10 @@ namespace VetClinic.Areas.Default.Controllers
         {
             _auth.LogOut();
             return RedirectToAction("Index", "Home");
+        }
+        private string GetHashPassword (string password)
+        {
+            return PasswordHasher.GetHashPassword(password);
         }
 
     }
