@@ -48,6 +48,10 @@ namespace VetClinic.Areas.Admin.Controllers
             {
                 ModelState.AddModelError("Date", "Нельзя записаться на выходной день");
             }
+            if (newSchedule.ProcedureID == 0)
+            {
+                ModelState.AddModelError("Procedure","Добавьте процедуру");
+            }
 
             if (ModelState.IsValid)
             {

@@ -64,6 +64,7 @@
                         </label>
                         <div class="controls">
                             @Html.DropDownListFor(m => m.ProcedureID, new MultiSelectList(Model.ProcedureList, "ID", "Title"))
+                            @Html.ValidationMessage("Procedure")
                         </div>
                     </div>
 

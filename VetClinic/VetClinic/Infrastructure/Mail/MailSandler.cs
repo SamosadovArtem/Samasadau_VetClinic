@@ -10,7 +10,7 @@ namespace VetClinic.Infrastructure.Mail
     {
         public bool SendEmail(string currentBody, string currentEmail)
         {
-            var fromAddress = new MailAddress("vetclinic_app@mail.ru", "vetclinic_app@mail.ru");
+            var fromAddress = new MailAddress("vetclinic1_app@mail.ru", "vetclinic_app@mail.ru");
             var toAddress = new MailAddress(currentEmail, currentEmail);
              string fromPassword = "Vet123456789";
              string subject = "Ветеринарная клиника";

@@ -38,6 +38,10 @@ namespace VetClinic.Areas.Default.Controllers
             {
                 ModelState.AddModelError("Date", "Запись возможно за один день до рабочего");
             }
+            if (newSchedule.ProcedureID == 0)
+            {
+                ModelState.AddModelError("Procedure", "Добавьте процедуру");
+            }
             if (IsDayOff(Convert.ToDateTime(newSchedule.date)))
             {
                 ModelState.AddModelError("Date", "Нельзя записаться на выходной день");

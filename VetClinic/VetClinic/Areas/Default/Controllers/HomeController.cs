@@ -160,6 +160,7 @@ namespace VetClinic.Areas.Default.Controllers
             Procedure firstProcedure = new Procedure();
             firstProcedure.Title = "Прививка";
             firstProcedure.Cost = 15000;
+            _repository.AddProcedure(firstProcedure);
 
             Schedule firstSchedule = new Schedule();
             firstSchedule.Date = DateTime.Now.AddDays(1).Date;

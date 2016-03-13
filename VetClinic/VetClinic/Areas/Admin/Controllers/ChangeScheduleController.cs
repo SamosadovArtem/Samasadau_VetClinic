@@ -74,6 +74,11 @@ namespace VetClinic.Areas.Admin.Controllers
                 ModelState.AddModelError("Date", "Выберете новую дату");
                 validFlag = false;
             }
+            if (newSchedule.ProcedureID == 0)
+            {
+                ModelState.AddModelError("Procedure", "Добавьте процедуру");
+                validFlag = false;
+            }
             if (IsDayOff(Convert.ToDateTime(newSchedule.date)))
             {
                 ModelState.AddModelError("Date", "Нельзя записаться на выходной день");
