@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using VetClinic.Models.ViewModels;
-using System.Collections.Generic;
 using VetClinic.Controllers;
 using VetClinic.Models;
 

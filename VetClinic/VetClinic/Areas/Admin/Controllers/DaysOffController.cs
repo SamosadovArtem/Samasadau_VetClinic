@@ -31,7 +31,7 @@ namespace VetClinic.Areas.Admin.Controllers
             if (ModelState.IsValid)
             {
                 var currentDayOff = (Daysoff)_mapper.Map(newDayOff, typeof(DaysoffView), typeof(Daysoff));
-                //this.DeleteOldDaysOff();
+                this.DeleteOldDaysOff();
                 this.SaveDayOff(currentDayOff);
                 return RedirectToAction("Index", "Success");
 

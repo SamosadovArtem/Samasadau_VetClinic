@@ -51,6 +51,12 @@ namespace VetClinic.Models
         bool ChangeSchedule(Schedule instance);
         IQueryable<Schedule> GetSchedulesToCurrentDoctor(int doctorID);
         IQueryable<Procedure> GetProcedures();
+        IQueryable<Role> GetRoles();
+        IQueryable<DoctorRole> GetDoctorRoles();
+        bool AddRole (Role instance);
+        bool MakeAdmin(int adminID, int roleID);
+        Doctor GetDoctorByName(string name);
+        Role GetRoleByName(string name);
 
         //--------------------
 

@@ -7,6 +7,7 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using VetClinic.Areas.Admin;
 using VetClinic.Areas.Default;
+using VetClinic.Models;
 
 namespace VetClinic
 {
@@ -30,6 +31,16 @@ namespace VetClinic
             //WebApiConfig.Register(GlobalConfiguration.Configuration);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+
+            VetDBDataContext data = new VetDBDataContext();
+            try
+            {
+                data.CreateDatabase();
+            }
+            catch
+            {
+
+            }
         }
     }
 }

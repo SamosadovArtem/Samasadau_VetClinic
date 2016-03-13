@@ -17,11 +17,10 @@ namespace VetClinic.Areas.Default.Controllers
         //
         // GET: /Doctor/
 
-        //public IRepository _repository;
 
         public DoctorController()
         {
-            //_repository = DependencyResolver.Current.GetService<IRepository>();
+           
         }
         public ActionResult Index()
         {

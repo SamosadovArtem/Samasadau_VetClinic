@@ -2,6 +2,7 @@
 
 @{
     Layout = "~/Areas/Default/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Регистрация";
 }
 
 <!DOCTYPE html>
@@ -58,6 +59,7 @@
                         <label class="control-label" for="FirstName">
                             Confirm Password
                         </label>
+                        </div>
                         <div class="controls">
 
                             @Html.Password("ConfirmPassword", Model.ConfirmPassword, new { @class = "form-control" })

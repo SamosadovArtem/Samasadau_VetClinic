@@ -169,8 +169,6 @@
     <Compile Include="Infrastructure\Auth\DoctorProvider.cs" />
     <Compile Include="Infrastructure\Auth\IAuthentication.cs" />
     <Compile Include="Infrastructure\Auth\IProvider.cs" />
-    <Compile Include="Infrastructure\DateWork.cs" />
-    <Compile Include="Infrastructure\DayInfo.cs" />
     <Compile Include="Infrastructure\Mail\MailSandler.cs" />
     <Compile Include="Infrastructure\PasswordHasher.cs" />
     <Compile Include="Infrastructure\Validation\EmailValidation.cs" />
@@ -253,6 +251,7 @@
     <Content Include="Areas\Admin\Views\DaysOff\NewDayOff.cshtml" />
     <Content Include="Areas\Default\Views\Doctor\Confirm.cshtml" />
     <Content Include="Areas\Default\Views\Home\Help.cshtml" />
+    <Content Include="Areas\Default\Views\Home\MethodForRuslan.cshtml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />

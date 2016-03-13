@@ -63,6 +63,9 @@ namespace VetClinic.App_Start
             VetDBDataContext(ConfigurationManager.ConnectionStrings
             ["VetDBConnectionString"].ConnectionString));
 
+
+
+
             kernel.Bind<IRepository>().To<Models.SQLRepository.SQLRepository>().
             InRequestScope();
 

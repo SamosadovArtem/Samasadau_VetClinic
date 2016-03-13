@@ -42,7 +42,6 @@ namespace VetClinic.Areas.Admin.Controllers
                 return RedirectToAction("Index", "Success");
             }
             return View(newClient);
-            // return View("~Areas/Admin/Views/Success/Index.cshtml");
 
         }
         private void SaveClient(Client currentClient)

@@ -22,7 +22,7 @@ namespace VetClinic.Models
 	using System;
 	
 	
-	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="VetClinicDB")]
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name= "VetDBConnectionString")]
 	public partial class VetDBDataContext : System.Data.Linq.DataContext
 	{
 		
@@ -62,8 +62,8 @@ namespace VetClinic.Models
     partial void DeleteDaysoff(Daysoff instance);
     #endregion
 		
-		public VetDBDataContext() : 
-				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["VetClinicDBConnectionString"].ConnectionString, mappingSource)
+		public VetDBDataContext() :                                                     
+				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["VetDBConnectionString"].ConnectionString, mappingSource)
 		{
 			OnCreated();
 		}

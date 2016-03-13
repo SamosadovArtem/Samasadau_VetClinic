@@ -48,11 +48,11 @@ namespace VetClinic.Areas.Admin.Controllers
                 switch(searchAttribute)
                 {
                     case "master": return GetPetsByMaster(searchValue);
-                        break;
+
                     case "name": return GetPetsByName(searchValue);
-                        break;
+                  
                     case "kind": return GetPetsByKind(searchValue);
-                        break;
+                      
                     default: throw new Exception();
                 }
                 throw new Exception();

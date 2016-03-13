@@ -29,7 +29,15 @@ namespace VetClinic.Models
             var rolesArray = roles.Split(new[] { "," }, StringSplitOptions.RemoveEmptyEntries);
             foreach (var role in rolesArray)
             {
-                var hasRole = DoctorRole.Any(p => string.Compare(p.Role.Code, role, true) == 0);
+                bool hasRole;
+                try
+                {
+                    hasRole = DoctorRole.Any(p => string.Compare(p.Role.Code, role, true) == 0);
+                }
+                catch (NullReferenceException)
+                {
+                    return false;
+                }
                 if (hasRole)
                 {
                     return true;

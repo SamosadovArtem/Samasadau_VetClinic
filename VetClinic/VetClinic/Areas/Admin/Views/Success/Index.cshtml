@@ -1,5 +1,6 @@
 ﻿@{
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Успех";
 }
 
 <!DOCTYPE html>
@@ -12,7 +13,7 @@
 <body>
     <div>
         <div class="alert alert-success">
-            <h2>Оформление прошло успешно</h2>
+            <h2>Действие прошло успешно</h2>
             </div>
             @Html.ActionLink("Вернуться на главную страницу", "Index", new { area = "Default", controller = "Home" })
             @Html.ActionLink("Вернуться к администрированию", "Index", "Home")

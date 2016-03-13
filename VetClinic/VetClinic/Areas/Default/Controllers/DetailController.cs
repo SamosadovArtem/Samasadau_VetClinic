@@ -21,7 +21,7 @@ namespace VetClinic.Areas.Default.Controllers
 
             Month currentMonth = new Month();
             currentMonth.GenerateDaysInfo(_repository.GetSchedulesToCurrentDoctor(CurrentUser.ID).ToList());
-            //List<Day> ld = currentMonth.days;
+
             if (CurrentUser != null)
             {
                 ViewBag.CurrentID = CurrentUser.ID;
@@ -33,12 +33,7 @@ namespace VetClinic.Areas.Default.Controllers
             List<PetView> allPets = GetCurrentPet();
             return View(allPets);
         }
-        //[HttpPost]
-        //public ActionResult GetPet(int userPetID)
-        //{
-        //    return RedirectToAction("Index", "Card", new {petID = userPetID });
 
-        //}
         public ActionResult Result (int userPetID)
         {
             return RedirectToAction("Index", "Card", new { petID = userPetID });

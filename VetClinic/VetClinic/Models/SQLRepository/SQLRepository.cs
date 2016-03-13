@@ -16,6 +16,8 @@ namespace VetClinic.Models.SQLRepository
         public SQLRepository()
         {
             dataBase = DependencyResolver.Current.GetService<VetDBDataContext>();
+
+
         }
         public IQueryable<Doctor> GetDoctors()
         {
@@ -313,6 +315,55 @@ namespace VetClinic.Models.SQLRepository
             dataBase.GetTable<Daysoff>().DeleteOnSubmit(deleteDayoff);
             dataBase.SubmitChanges();
             return true;
+        }
+
+        public IQueryable<Role> GetRoles()
+        {
+            return dataBase.Role;
+        }
+
+        public IQueryable<DoctorRole> GetDoctorRoles()
+        {
+            return dataBase.DoctorRole;
+        }
+
+        public bool AddRole(Role instance)
+        {
+            dataBase.Role.InsertOnSubmit(instance);
+            dataBase.Role.Context.SubmitChanges();
+            return true;
+        }
+
+        public bool MakeAdmin(int adminID, int roleID)
+        {
+            DoctorRole instance = new DoctorRole();
+            instance.DoctorID = adminID;
+            instance.RoleID = roleID;
+            dataBase.DoctorRole.InsertOnSubmit(instance);
+            try
+            {
+                dataBase.DoctorRole.Context.SubmitChanges();
+            }
+            catch 
+            {
+                return false;
+            }
+            
+            return true;
+        }
+
+        public Doctor GetDoctorByName(string name)
+        {
+            return (from d in dataBase.Doctor
+                    where d.Name == name
+                    select d).Single();
+        }
+
+        public Role GetRoleByName(string role)
+        {
+            return (from r in dataBase.Role
+                    where r.Name == role
+                    select r).Single();
         }
     }
 }
